@@ -66,10 +66,6 @@ void __interrupt() INTERRUPT_InterruptManager (void)
     {
         INT1_ISR();
     }
-    else if(PIE10bits.INT2IE == 1 && PIR10bits.INT2IF == 1)
-    {
-        INT2_ISR();
-    }
     else
     {
         //Unhandled Interrupt

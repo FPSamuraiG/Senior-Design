@@ -42,7 +42,7 @@
 */
 
 #include "mcc_generated_files/mcc.h"
-
+#include "comm_uart.h"
 /*
                          Main application
  */
@@ -50,7 +50,9 @@ void main(void)
 {
     // Initialize the device
     SYSTEM_Initialize();
-
+    INTERRUPT_GlobalInterruptEnable();
+    
+    uart_send_string("Test");
     // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts
     // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global Interrupts
     // Use the following macros to:
