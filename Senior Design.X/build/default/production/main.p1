@@ -1,26 +1,39 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"73 ./mcc_generated_files/mcc.h
-[; ;./mcc_generated_files/mcc.h: 73: void SYSTEM_Initialize(void);
+"71 ./mcc_generated_files/mcc.h
+[; ;./mcc_generated_files/mcc.h: 71: void SYSTEM_Initialize(void);
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"37224 D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 37224:     struct {
-[s S1765 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1765 . INT0EDG INT1EDG INT2EDG . IPEN GIEL GIE ]
-"37233
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 37233:     struct {
-[s S1766 :7 `uc 1 :1 `uc 1 ]
-[n S1766 . . GIEH ]
-"37223
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 37223: typedef union {
-[u S1764 `S1765 1 `S1766 1 ]
-[n S1764 . . . ]
-"37238
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 37238: extern volatile INTCON0bits_t INTCON0bits __attribute__((address(0x4D6)));
-[v _INTCON0bits `VS1764 ~T0 @X0 0 e@1238 ]
 "18 ./comm_uart.h
 [; ;./comm_uart.h: 18:     void uart_send_string(char* msg);
 [v _uart_send_string `(v ~T0 @X0 0 ef1`*uc ]
+"111 D:\Programs\Microchip\xc8\v2.32\pic\include\c99\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"36860 D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 36860:     struct {
+[s S1751 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1751 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"36859
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 36859: typedef union {
+[u S1750 `S1751 1 ]
+[n S1750 . . ]
+"36871
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 36871: extern volatile LATCbits_t LATCbits __attribute__((address(0x4C0)));
+[v _LATCbits `VS1750 ~T0 @X0 0 e@1216 ]
+[v F183 `(v ~T0 @X0 1 tf1`ul ]
+"12 D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\builtins.h
+[v __delay `JF183 ~T0 @X0 0 e ]
+[p i __delay ]
+"37162 D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 37162:     struct {
+[s S1763 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1763 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"37161
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 37161: typedef union {
+[u S1762 `S1763 1 ]
+[n S1762 . . ]
+"37173
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 37173: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x4D0)));
+[v _PORTCbits `VS1762 ~T0 @X0 0 e@1232 ]
 "270 D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h
 [; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 270: __asm("CLKRCON equ 039h");
 [; <" CLKRCON equ 039h ;# ">
@@ -2061,26 +2074,82 @@ Version 4.0 HI-TECH Software Intermediate Code
 "52
 [; ;main.c: 52:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"53
-[; ;main.c: 53:     (INTCON0bits.GIE = 1);
-[e = . . _INTCON0bits 0 6 -> -> 1 `i `uc ]
 "55
 [; ;main.c: 55:     uart_send_string("Test");
 [e ( _uart_send_string (1 :s 1C ]
-"66
-[; ;main.c: 66:     while (1)
-[e :U 1873 ]
-"67
-[; ;main.c: 67:     {
-{
-"69
-[; ;main.c: 69:     }
-}
-[e :U 1872 ]
-[e $U 1873  ]
+"56
+[; ;main.c: 56:     printf("Test2\n\r");
+[e ( _printf :s 2C ]
+"57
+[; ;main.c: 57:     do { LATCbits.LATC1 = 0; } while(0);
 [e :U 1874 ]
+{
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+}
+[e :U 1873 ]
+"58
+[; ;main.c: 58:     _delay((unsigned long)((1500)*(1000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1500 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
+"69
+[; ;main.c: 69:     _Bool pressed = 0;
+[v _pressed `a ~T0 @X0 1 a ]
+[e = _pressed -> -> 0 `i `a ]
 "70
-[; ;main.c: 70: }
+[; ;main.c: 70:     while (1)
+[e :U 1876 ]
+"71
+[; ;main.c: 71:     {
+{
+"72
+[; ;main.c: 72:         if (PORTCbits.RC0 == 0 && pressed == 0){
+[e $ ! && == -> . . _PORTCbits 0 0 `i -> 0 `i == -> _pressed `i -> 0 `i 1878  ]
+{
+"73
+[; ;main.c: 73:             pressed = 1;
+[e = _pressed -> -> 1 `i `a ]
+"74
+[; ;main.c: 74:             do { LATCbits.LATC1 = 0; } while(0);
+[e :U 1881 ]
+{
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+}
+[e :U 1880 ]
+"75
+[; ;main.c: 75:         }
+}
+[e $U 1882  ]
+"76
+[; ;main.c: 76:         else if (PORTCbits.RC0 == 1 && pressed == 1){
+[e :U 1878 ]
+[e $ ! && == -> . . _PORTCbits 0 0 `i -> 1 `i == -> _pressed `i -> 1 `i 1883  ]
+{
+"77
+[; ;main.c: 77:             pressed = 0;
+[e = _pressed -> -> 0 `i `a ]
+"78
+[; ;main.c: 78:         }
+}
+[e :U 1883 ]
+[e :U 1882 ]
+"80
+[; ;main.c: 80:         if (pressed == 0) do { LATCbits.LATC1 = 1; } while(0);
+[e $ ! == -> _pressed `i -> 0 `i 1884  ]
+[e :U 1887 ]
+{
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+}
+[e :U 1886 ]
+[e :U 1884 ]
+"91
+[; ;main.c: 91:     }
+}
+[e :U 1875 ]
+[e $U 1876  ]
+[e :U 1877 ]
+"92
+[; ;main.c: 92: }
 [e :UE 1871 ]
 }
+[p f _printf 8388608 ]
 [a 1C 84 101 115 116 0 ]
+[a 2C 84 101 115 116 50 10 13 0 ]

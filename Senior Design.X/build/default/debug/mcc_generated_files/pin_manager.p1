@@ -1,79 +1,85 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"37224 D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 37224:     struct {
-[s S1765 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1765 . INT0EDG INT1EDG INT2EDG . IPEN GIEL GIE ]
-"37233
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 37233:     struct {
-[s S1766 :7 `uc 1 :1 `uc 1 ]
-[n S1766 . . GIEH ]
-"37223
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 37223: typedef union {
-[u S1764 `S1765 1 `S1766 1 ]
-[n S1764 . . . ]
-"37238
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 37238: extern volatile INTCON0bits_t INTCON0bits __attribute__((address(0x4D6)));
-[v _INTCON0bits `VS1764 ~T0 @X0 0 e@1238 ]
-[t ~ __interrupt . k ]
-[t T1 __interrupt ]
-"35544
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 35544:     struct {
-[s S1701 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1701 . INT0IE ZCDIE ADIE ACTIE C1IE SMT1IE SMT1PRAIE SMT1PWAIE ]
-"35554
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 35554:     struct {
-[s S1702 :4 `uc 1 :1 `uc 1 ]
-[n S1702 . . CM1IE ]
-"35543
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 35543: typedef union {
-[u S1700 `S1701 1 `S1702 1 ]
-[n S1700 . . . ]
-"35559
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 35559: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x4A9)));
-[v _PIE1bits `VS1700 ~T0 @X0 0 e@1193 ]
-"36191
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 36191:     struct {
-[s S1725 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1725 . INT0IF ZCDIF ADIF ACTIF C1IF SMT1IF SMT1PRAIF SMT1PWAIF ]
-"36201
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 36201:     struct {
-[s S1726 :4 `uc 1 :1 `uc 1 ]
-[n S1726 . . CM1IF ]
-"36190
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 36190: typedef union {
-[u S1724 `S1725 1 `S1726 1 ]
-[n S1724 . . . ]
-"36206
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 36206: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x4B4)));
-[v _PIR1bits `VS1724 ~T0 @X0 0 e@1204 ]
-"428 mcc_generated_files/ext_int.h
-[; ;mcc_generated_files/ext_int.h: 428: void INT0_ISR(void);
-[v _INT0_ISR `(v ~T0 @X0 0 ef ]
-"35850 D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 35850:     struct {
-[s S1713 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1713 . INT1IE . CWG1IE NCO1IE DMA2SCNTIE DMA2DCNTIE DMA2ORIE DMA2AIE ]
-"35849
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 35849: typedef union {
-[u S1712 `S1713 1 ]
-[n S1712 . . ]
-"35861
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 35861: extern volatile PIE6bits_t PIE6bits __attribute__((address(0x4AE)));
-[v _PIE6bits `VS1712 ~T0 @X0 0 e@1198 ]
-"36497
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 36497:     struct {
-[s S1737 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1737 . INT1IF . CWG1IF NCO1IF DMA2SCNTIF DMA2DCNTIF DMA2ORIF DMA2AIF ]
-"36496
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 36496: typedef union {
-[u S1736 `S1737 1 ]
-[n S1736 . . ]
-"36508
-[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 36508: extern volatile PIR6bits_t PIR6bits __attribute__((address(0x4B9)));
-[v _PIR6bits `VS1736 ~T0 @X0 0 e@1209 ]
-"541 mcc_generated_files/ext_int.h
-[; ;mcc_generated_files/ext_int.h: 541: void INT1_ISR(void);
-[v _INT1_ISR `(v ~T0 @X0 0 ef ]
+"36770 D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 36770: extern volatile unsigned char LATA __attribute__((address(0x4BE)));
+[v _LATA `Vuc ~T0 @X0 0 e@1214 ]
+"36815
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 36815: extern volatile unsigned char LATB __attribute__((address(0x4BF)));
+[v _LATB `Vuc ~T0 @X0 0 e@1215 ]
+"36854
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 36854: extern volatile unsigned char LATC __attribute__((address(0x4C0)));
+[v _LATC `Vuc ~T0 @X0 0 e@1216 ]
+"36916
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 36916: extern volatile unsigned char TRISA __attribute__((address(0x4C6)));
+[v _TRISA `Vuc ~T0 @X0 0 e@1222 ]
+"36966
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 36966: extern volatile unsigned char TRISB __attribute__((address(0x4C7)));
+[v _TRISB `Vuc ~T0 @X0 0 e@1223 ]
+"37005
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 37005: extern volatile unsigned char TRISC __attribute__((address(0x4C8)));
+[v _TRISC `Vuc ~T0 @X0 0 e@1224 ]
+"32325
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 32325: extern volatile unsigned char ANSELC __attribute__((address(0x410)));
+[v _ANSELC `Vuc ~T0 @X0 0 e@1040 ]
+"32013
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 32013: extern volatile unsigned char ANSELB __attribute__((address(0x408)));
+[v _ANSELB `Vuc ~T0 @X0 0 e@1032 ]
+"31628
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 31628: extern volatile unsigned char ANSELA __attribute__((address(0x400)));
+[v _ANSELA `Vuc ~T0 @X0 0 e@1024 ]
+"32052
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 32052: extern volatile unsigned char WPUB __attribute__((address(0x409)));
+[v _WPUB `Vuc ~T0 @X0 0 e@1033 ]
+"31673
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 31673: extern volatile unsigned char WPUA __attribute__((address(0x401)));
+[v _WPUA `Vuc ~T0 @X0 0 e@1025 ]
+"32387
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 32387: extern volatile unsigned char WPUC __attribute__((address(0x411)));
+[v _WPUC `Vuc ~T0 @X0 0 e@1041 ]
+"31723
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 31723: extern volatile unsigned char ODCONA __attribute__((address(0x402)));
+[v _ODCONA `Vuc ~T0 @X0 0 e@1026 ]
+"32091
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 32091: extern volatile unsigned char ODCONB __attribute__((address(0x40A)));
+[v _ODCONB `Vuc ~T0 @X0 0 e@1034 ]
+"32449
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 32449: extern volatile unsigned char ODCONC __attribute__((address(0x412)));
+[v _ODCONC `Vuc ~T0 @X0 0 e@1042 ]
+"31768
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 31768: extern volatile unsigned char SLRCONA __attribute__((address(0x403)));
+[v _SLRCONA `Vuc ~T0 @X0 0 e@1027 ]
+"32130
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 32130: extern volatile unsigned char SLRCONB __attribute__((address(0x40B)));
+[v _SLRCONB `Vuc ~T0 @X0 0 e@1035 ]
+"32511
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 32511: extern volatile unsigned char SLRCONC __attribute__((address(0x413)));
+[v _SLRCONC `Vuc ~T0 @X0 0 e@1043 ]
+"31813
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 31813: extern volatile unsigned char INLVLA __attribute__((address(0x404)));
+[v _INLVLA `Vuc ~T0 @X0 0 e@1028 ]
+"32169
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 32169: extern volatile unsigned char INLVLB __attribute__((address(0x40C)));
+[v _INLVLB `Vuc ~T0 @X0 0 e@1036 ]
+"32573
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 32573: extern volatile unsigned char INLVLC __attribute__((address(0x414)));
+[v _INLVLC `Vuc ~T0 @X0 0 e@1044 ]
+"12773
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 12773: extern volatile unsigned char I2C1SDAPPS __attribute__((address(0x270)));
+[v _I2C1SDAPPS `Vuc ~T0 @X0 0 e@624 ]
+"9525
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 9525: extern volatile unsigned char RB6PPS __attribute__((address(0x20F)));
+[v _RB6PPS `Vuc ~T0 @X0 0 e@527 ]
+"9575
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 9575: extern volatile unsigned char RB7PPS __attribute__((address(0x210)));
+[v _RB7PPS `Vuc ~T0 @X0 0 e@528 ]
+"9425
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 9425: extern volatile unsigned char RB4PPS __attribute__((address(0x20D)));
+[v _RB4PPS `Vuc ~T0 @X0 0 e@525 ]
+"12917
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 12917: extern volatile unsigned char U1RXPPS __attribute__((address(0x272)));
+[v _U1RXPPS `Vuc ~T0 @X0 0 e@626 ]
+"12845
+[; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 12845: extern volatile unsigned char I2C1SCLPPS __attribute__((address(0x271)));
+[v _I2C1SCLPPS `Vuc ~T0 @X0 0 e@625 ]
 "270 D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h
 [; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 270: __asm("CLKRCON equ 039h");
 [; <" CLKRCON equ 039h ;# ">
@@ -2102,69 +2108,108 @@ Version 4.0 HI-TECH Software Intermediate Code
 "38547
 [; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 38547: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
-"52 mcc_generated_files/interrupt_manager.c
-[; ;mcc_generated_files/interrupt_manager.c: 52: void INTERRUPT_Initialize (void)
-[v _INTERRUPT_Initialize `(v ~T0 @X0 1 ef ]
-"53
-[; ;mcc_generated_files/interrupt_manager.c: 53: {
-{
-[e :U _INTERRUPT_Initialize ]
-[f ]
-"55
-[; ;mcc_generated_files/interrupt_manager.c: 55:     INTCON0bits.IPEN = 0;
-[e = . . _INTCON0bits 0 4 -> -> 0 `i `uc ]
+"55 mcc_generated_files/pin_manager.c
+[; ;mcc_generated_files/pin_manager.c: 55: void PIN_MANAGER_Initialize(void)
+[v _PIN_MANAGER_Initialize `(v ~T0 @X0 1 ef ]
 "56
-[; ;mcc_generated_files/interrupt_manager.c: 56: }
-[e :UE 1870 ]
-}
-[v $root$_INTERRUPT_InterruptManager `(v ~T0 @X0 0 e ]
-"58
-[; ;mcc_generated_files/interrupt_manager.c: 58: void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager (void)
-[v _INTERRUPT_InterruptManager `(v ~T1 @X0 1 ef ]
-"59
-[; ;mcc_generated_files/interrupt_manager.c: 59: {
+[; ;mcc_generated_files/pin_manager.c: 56: {
 {
-[e :U _INTERRUPT_InterruptManager ]
+[e :U _PIN_MANAGER_Initialize ]
 [f ]
+"60
+[; ;mcc_generated_files/pin_manager.c: 60:     LATA = 0x00;
+[e = _LATA -> -> 0 `i `uc ]
 "61
-[; ;mcc_generated_files/interrupt_manager.c: 61:     if(PIE1bits.INT0IE == 1 && PIR1bits.INT0IF == 1)
-[e $ ! && == -> . . _PIE1bits 0 0 `i -> 1 `i == -> . . _PIR1bits 0 0 `i -> 1 `i 1872  ]
+[; ;mcc_generated_files/pin_manager.c: 61:     LATB = 0x00;
+[e = _LATB -> -> 0 `i `uc ]
 "62
-[; ;mcc_generated_files/interrupt_manager.c: 62:     {
-{
-"63
-[; ;mcc_generated_files/interrupt_manager.c: 63:         INT0_ISR();
-[e ( _INT0_ISR ..  ]
-"64
-[; ;mcc_generated_files/interrupt_manager.c: 64:     }
-}
-[e $U 1873  ]
-"65
-[; ;mcc_generated_files/interrupt_manager.c: 65:     else if(PIE6bits.INT1IE == 1 && PIR6bits.INT1IF == 1)
-[e :U 1872 ]
-[e $ ! && == -> . . _PIE6bits 0 0 `i -> 1 `i == -> . . _PIR6bits 0 0 `i -> 1 `i 1874  ]
-"66
-[; ;mcc_generated_files/interrupt_manager.c: 66:     {
-{
+[; ;mcc_generated_files/pin_manager.c: 62:     LATC = 0x00;
+[e = _LATC -> -> 0 `i `uc ]
 "67
-[; ;mcc_generated_files/interrupt_manager.c: 67:         INT1_ISR();
-[e ( _INT1_ISR ..  ]
+[; ;mcc_generated_files/pin_manager.c: 67:     TRISA = 0x3F;
+[e = _TRISA -> -> 63 `i `uc ]
 "68
-[; ;mcc_generated_files/interrupt_manager.c: 68:     }
-}
-[e $U 1875  ]
+[; ;mcc_generated_files/pin_manager.c: 68:     TRISB = 0x20;
+[e = _TRISB -> -> 32 `i `uc ]
 "69
-[; ;mcc_generated_files/interrupt_manager.c: 69:     else
-[e :U 1874 ]
-"70
-[; ;mcc_generated_files/interrupt_manager.c: 70:     {
-{
-"72
-[; ;mcc_generated_files/interrupt_manager.c: 72:     }
+[; ;mcc_generated_files/pin_manager.c: 69:     TRISC = 0xFD;
+[e = _TRISC -> -> 253 `i `uc ]
+"74
+[; ;mcc_generated_files/pin_manager.c: 74:     ANSELC = 0xFC;
+[e = _ANSELC -> -> 252 `i `uc ]
+"75
+[; ;mcc_generated_files/pin_manager.c: 75:     ANSELB = 0x80;
+[e = _ANSELB -> -> 128 `i `uc ]
+"76
+[; ;mcc_generated_files/pin_manager.c: 76:     ANSELA = 0x37;
+[e = _ANSELA -> -> 55 `i `uc ]
+"81
+[; ;mcc_generated_files/pin_manager.c: 81:     WPUB = 0x00;
+[e = _WPUB -> -> 0 `i `uc ]
+"82
+[; ;mcc_generated_files/pin_manager.c: 82:     WPUA = 0x00;
+[e = _WPUA -> -> 0 `i `uc ]
+"83
+[; ;mcc_generated_files/pin_manager.c: 83:     WPUC = 0x01;
+[e = _WPUC -> -> 1 `i `uc ]
+"88
+[; ;mcc_generated_files/pin_manager.c: 88:     ODCONA = 0x00;
+[e = _ODCONA -> -> 0 `i `uc ]
+"89
+[; ;mcc_generated_files/pin_manager.c: 89:     ODCONB = 0x50;
+[e = _ODCONB -> -> 80 `i `uc ]
+"90
+[; ;mcc_generated_files/pin_manager.c: 90:     ODCONC = 0x00;
+[e = _ODCONC -> -> 0 `i `uc ]
+"95
+[; ;mcc_generated_files/pin_manager.c: 95:     SLRCONA = 0x37;
+[e = _SLRCONA -> -> 55 `i `uc ]
+"96
+[; ;mcc_generated_files/pin_manager.c: 96:     SLRCONB = 0xF0;
+[e = _SLRCONB -> -> 240 `i `uc ]
+"97
+[; ;mcc_generated_files/pin_manager.c: 97:     SLRCONC = 0xFF;
+[e = _SLRCONC -> -> 255 `i `uc ]
+"102
+[; ;mcc_generated_files/pin_manager.c: 102:     INLVLA = 0x3F;
+[e = _INLVLA -> -> 63 `i `uc ]
+"103
+[; ;mcc_generated_files/pin_manager.c: 103:     INLVLB = 0xF0;
+[e = _INLVLB -> -> 240 `i `uc ]
+"104
+[; ;mcc_generated_files/pin_manager.c: 104:     INLVLC = 0xFF;
+[e = _INLVLC -> -> 255 `i `uc ]
+"113
+[; ;mcc_generated_files/pin_manager.c: 113:     I2C1SDAPPS = 0x0C;
+[e = _I2C1SDAPPS -> -> 12 `i `uc ]
+"114
+[; ;mcc_generated_files/pin_manager.c: 114:     RB6PPS = 0x21;
+[e = _RB6PPS -> -> 33 `i `uc ]
+"115
+[; ;mcc_generated_files/pin_manager.c: 115:     RB7PPS = 0x10;
+[e = _RB7PPS -> -> 16 `i `uc ]
+"116
+[; ;mcc_generated_files/pin_manager.c: 116:     RB4PPS = 0x22;
+[e = _RB4PPS -> -> 34 `i `uc ]
+"117
+[; ;mcc_generated_files/pin_manager.c: 117:     U1RXPPS = 0x0D;
+[e = _U1RXPPS -> -> 13 `i `uc ]
+"118
+[; ;mcc_generated_files/pin_manager.c: 118:     I2C1SCLPPS = 0x0E;
+[e = _I2C1SCLPPS -> -> 14 `i `uc ]
+"119
+[; ;mcc_generated_files/pin_manager.c: 119: }
+[e :UE 1866 ]
 }
-[e :U 1875 ]
-[e :U 1873 ]
-"73
-[; ;mcc_generated_files/interrupt_manager.c: 73: }
-[e :UE 1871 ]
+"121
+[; ;mcc_generated_files/pin_manager.c: 121: void PIN_MANAGER_IOC(void)
+[v _PIN_MANAGER_IOC `(v ~T0 @X0 1 ef ]
+"122
+[; ;mcc_generated_files/pin_manager.c: 122: {
+{
+[e :U _PIN_MANAGER_IOC ]
+[f ]
+"123
+[; ;mcc_generated_files/pin_manager.c: 123: }
+[e :UE 1867 ]
 }

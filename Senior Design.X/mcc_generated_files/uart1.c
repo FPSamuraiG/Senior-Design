@@ -87,8 +87,8 @@ void UART1_Initialize(void)
     // P3H 0; 
     U1P3H = 0x00;
 
-    // BRGS high speed; MODE Asynchronous 8-bit mode; RXEN enabled; TXEN enabled; ABDEN disabled; 
-    U1CON0 = 0xB0;
+    // BRGS high speed; MODE Asynchronous 8-bit mode; RXEN disabled; TXEN enabled; ABDEN disabled; 
+    U1CON0 = 0xA0;
 
     // RXBIMD Set RXBKIF on rising RX input; BRKOVR disabled; WUE disabled; SENDB disabled; ON enabled; 
     U1CON1 = 0x80;
@@ -174,6 +174,16 @@ void UART1_Write(uint8_t txData)
     }
 
     U1TXB = txData;    // Write the data byte to the USART.
+}
+
+char getch(void)
+{
+    return UART1_Read();
+}
+
+void putch(char txData)
+{
+    UART1_Write(txData);
 }
 
 

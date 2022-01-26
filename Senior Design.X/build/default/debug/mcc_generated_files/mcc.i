@@ -1,4 +1,4 @@
-# 1 "mcc_generated_files/interrupt_manager.c"
+# 1 "mcc_generated_files/mcc.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,13 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcc_generated_files/interrupt_manager.c" 2
-# 49 "mcc_generated_files/interrupt_manager.c"
-# 1 "mcc_generated_files/interrupt_manager.h" 1
-# 87 "mcc_generated_files/interrupt_manager.h"
-void INTERRUPT_Initialize (void);
-# 49 "mcc_generated_files/interrupt_manager.c" 2
-
+# 1 "mcc_generated_files/mcc.c" 2
+# 47 "mcc_generated_files/mcc.c"
 # 1 "mcc_generated_files/mcc.h" 1
 # 49 "mcc_generated_files/mcc.h"
 # 1 "D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\\pic\\include\\xc.h" 1 3
@@ -22910,9 +22905,9 @@ unsigned char __t3rd16on(void);
 # 50 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/pin_manager.h" 1
-# 150 "mcc_generated_files/pin_manager.h"
+# 166 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 162 "mcc_generated_files/pin_manager.h"
+# 178 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "mcc_generated_files/mcc.h" 2
 
@@ -22952,7 +22947,6 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 # 54 "mcc_generated_files/mcc.h" 2
-
 
 # 1 "mcc_generated_files/i2c1_master.h" 1
 # 54 "mcc_generated_files/i2c1_master.h"
@@ -23161,35 +23155,10 @@ void I2C1_SetAddressNackCallback(i2c1_callback_t cb, void *ptr);
 void I2C1_SetDataNackCallback(i2c1_callback_t cb, void *ptr);
 # 204 "mcc_generated_files/i2c1_master.h"
 void I2C1_SetTimeoutCallback(i2c1_callback_t cb, void *ptr);
-# 56 "mcc_generated_files/mcc.h" 2
-
-# 1 "mcc_generated_files/ext_int.h" 1
-# 406 "mcc_generated_files/ext_int.h"
-void EXT_INT_Initialize(void);
-# 428 "mcc_generated_files/ext_int.h"
-void INT0_ISR(void);
-# 452 "mcc_generated_files/ext_int.h"
-void INT0_CallBack(void);
-# 475 "mcc_generated_files/ext_int.h"
-void INT0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 499 "mcc_generated_files/ext_int.h"
-extern void (*INT0_InterruptHandler)(void);
-# 523 "mcc_generated_files/ext_int.h"
-void INT0_DefaultInterruptHandler(void);
-# 541 "mcc_generated_files/ext_int.h"
-void INT1_ISR(void);
-# 565 "mcc_generated_files/ext_int.h"
-void INT1_CallBack(void);
-# 588 "mcc_generated_files/ext_int.h"
-void INT1_SetInterruptHandler(void (* InterruptHandler)(void));
-# 612 "mcc_generated_files/ext_int.h"
-extern void (*INT1_InterruptHandler)(void);
-# 636 "mcc_generated_files/ext_int.h"
-void INT1_DefaultInterruptHandler(void);
-# 57 "mcc_generated_files/mcc.h" 2
+# 55 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/uart1.h" 1
-# 74 "mcc_generated_files/uart1.h"
+# 75 "mcc_generated_files/uart1.h"
 typedef union {
     struct {
         unsigned perr : 1;
@@ -23199,55 +23168,74 @@ typedef union {
     };
     uint8_t status;
 }uart1_status_t;
-# 110 "mcc_generated_files/uart1.h"
+# 111 "mcc_generated_files/uart1.h"
 void UART1_Initialize(void);
-# 158 "mcc_generated_files/uart1.h"
+# 159 "mcc_generated_files/uart1.h"
 _Bool UART1_is_rx_ready(void);
-# 206 "mcc_generated_files/uart1.h"
+# 207 "mcc_generated_files/uart1.h"
 _Bool UART1_is_tx_ready(void);
-# 253 "mcc_generated_files/uart1.h"
+# 254 "mcc_generated_files/uart1.h"
 _Bool UART1_is_tx_done(void);
-# 301 "mcc_generated_files/uart1.h"
+# 302 "mcc_generated_files/uart1.h"
 uart1_status_t UART1_get_last_status(void);
-# 350 "mcc_generated_files/uart1.h"
+# 351 "mcc_generated_files/uart1.h"
 uint8_t UART1_Read(void);
-# 375 "mcc_generated_files/uart1.h"
+# 376 "mcc_generated_files/uart1.h"
 void UART1_Write(uint8_t txData);
-# 395 "mcc_generated_files/uart1.h"
+# 396 "mcc_generated_files/uart1.h"
 void UART1_SetFramingErrorHandler(void (* interruptHandler)(void));
-# 413 "mcc_generated_files/uart1.h"
+# 414 "mcc_generated_files/uart1.h"
 void UART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
-# 431 "mcc_generated_files/uart1.h"
+# 432 "mcc_generated_files/uart1.h"
 void UART1_SetErrorHandler(void (* interruptHandler)(void));
-# 58 "mcc_generated_files/mcc.h" 2
-# 73 "mcc_generated_files/mcc.h"
+# 56 "mcc_generated_files/mcc.h" 2
+# 71 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 86 "mcc_generated_files/mcc.h"
+# 84 "mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 99 "mcc_generated_files/mcc.h"
+# 97 "mcc_generated_files/mcc.h"
 void PMD_Initialize(void);
-# 50 "mcc_generated_files/interrupt_manager.c" 2
+# 47 "mcc_generated_files/mcc.c" 2
 
 
-void INTERRUPT_Initialize (void)
+
+void SYSTEM_Initialize(void)
 {
-
-    INTCON0bits.IPEN = 0;
+    PMD_Initialize();
+    I2C1_Initialize();
+    PIN_MANAGER_Initialize();
+    OSCILLATOR_Initialize();
+    UART1_Initialize();
 }
 
-void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager (void)
+void OSCILLATOR_Initialize(void)
 {
 
-    if(PIE1bits.INT0IE == 1 && PIR1bits.INT0IF == 1)
-    {
-        INT0_ISR();
-    }
-    else if(PIE6bits.INT1IE == 1 && PIR6bits.INT1IF == 1)
-    {
-        INT1_ISR();
-    }
-    else
-    {
+    OSCCON1 = 0x60;
 
-    }
+    OSCCON3 = 0x00;
+
+    OSCEN = 0x00;
+
+    OSCFRQ = 0x00;
+
+    OSCTUNE = 0x00;
+
+    ACTCON = 0x00;
+}
+
+void PMD_Initialize(void)
+{
+
+    PMD0 = 0x00;
+
+    PMD1 = 0x00;
+
+    PMD2 = 0x00;
+
+    PMD3 = 0x00;
+
+    PMD4 = 0x00;
+
+    PMD5 = 0x00;
 }

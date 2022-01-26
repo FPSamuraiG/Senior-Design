@@ -50,9 +50,12 @@ void main(void)
 {
     // Initialize the device
     SYSTEM_Initialize();
-    INTERRUPT_GlobalInterruptEnable();
+    //INTERRUPT_GlobalInterruptEnable();
     
     uart_send_string("Test");
+    printf("Test2\n\r");
+    led_SetLow();
+    __delay_ms(1500);
     // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts
     // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global Interrupts
     // Use the following macros to:
@@ -62,10 +65,21 @@ void main(void)
 
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
-
+    
+    bool pressed = false;
     while (1)
     {
-        // Add your application code
+        if (btn_GetValue() == LOW && pressed == false){
+            pressed = true;
+            uart_send_string("PSH");
+            printf("PSH2\n");
+            led_SetLow();
+        }
+        else if (btn_GetValue() == HIGH && pressed == true){
+            pressed = false;
+        }
+        
+        if (pressed == false) led_SetHigh();
     }
 }
 /**

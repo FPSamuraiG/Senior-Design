@@ -66,21 +66,21 @@ void PIN_MANAGER_Initialize(void)
     */
     TRISA = 0x3F;
     TRISB = 0x20;
-    TRISC = 0xFF;
+    TRISC = 0xFD;
 
     /**
     ANSELx registers
     */
-    ANSELC = 0x7F;
+    ANSELC = 0xFC;
     ANSELB = 0x80;
-    ANSELA = 0x33;
+    ANSELA = 0x37;
 
     /**
     WPUx registers
     */
     WPUB = 0x00;
     WPUA = 0x00;
-    WPUC = 0x00;
+    WPUC = 0x01;
 
     /**
     ODx registers
@@ -112,11 +112,9 @@ void PIN_MANAGER_Initialize(void)
 	
     I2C1SDAPPS = 0x0C;   //RB4->I2C1:SDA1;    
     RB6PPS = 0x21;   //RB6->I2C1:SCL1;    
-    INT0PPS = 0x02;   //RA2->EXT_INT:INT0;    
     RB7PPS = 0x10;   //RB7->UART1:TX1;    
     RB4PPS = 0x22;   //RB4->I2C1:SDA1;    
-    INT1PPS = 0x0D;   //RB5->EXT_INT:INT1;    
-    U1RXPPS = 0x17;   //RC7->UART1:RX1;    
+    U1RXPPS = 0x0D;   //RB5->UART1:RX1;    
     I2C1SCLPPS = 0x0E;   //RB6->I2C1:SCL1;    
 }
   
