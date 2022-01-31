@@ -22900,15 +22900,25 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\\pic\\include\\xc.h" 2 3
 # 54 "mcc_generated_files/pin_manager.h" 2
-# 166 "mcc_generated_files/pin_manager.h"
+# 186 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 178 "mcc_generated_files/pin_manager.h"
+# 198 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
+# 211 "mcc_generated_files/pin_manager.h"
+void IOCCF7_ISR(void);
+# 234 "mcc_generated_files/pin_manager.h"
+void IOCCF7_SetInterruptHandler(void (* InterruptHandler)(void));
+# 258 "mcc_generated_files/pin_manager.h"
+extern void (*IOCCF7_InterruptHandler)(void);
+# 282 "mcc_generated_files/pin_manager.h"
+void IOCCF7_DefaultInterruptHandler(void);
 # 49 "mcc_generated_files/pin_manager.c" 2
 
 
 
 
+
+void (*IOCCF7_InterruptHandler)(void);
 
 
 void PIN_MANAGER_Initialize(void)
@@ -22930,7 +22940,7 @@ void PIN_MANAGER_Initialize(void)
 
 
 
-    ANSELC = 0xFC;
+    ANSELC = 0x7C;
     ANSELB = 0x80;
     ANSELA = 0x37;
 
@@ -22961,7 +22971,27 @@ void PIN_MANAGER_Initialize(void)
     INLVLA = 0x3F;
     INLVLB = 0xF0;
     INLVLC = 0xFF;
-# 113 "mcc_generated_files/pin_manager.c"
+
+
+
+
+
+
+    IOCCFbits.IOCCF7 = 0;
+
+    IOCCNbits.IOCCN7 = 1;
+
+    IOCCPbits.IOCCP7 = 0;
+
+
+
+
+    IOCCF7_SetInterruptHandler(IOCCF7_DefaultInterruptHandler);
+
+
+    PIE0bits.IOCIE = 1;
+
+
     I2C1SDAPPS = 0x0C;
     RB6PPS = 0x21;
     RB7PPS = 0x10;
@@ -22972,4 +23002,39 @@ void PIN_MANAGER_Initialize(void)
 
 void PIN_MANAGER_IOC(void)
 {
+
+    if(IOCCFbits.IOCCF7 == 1)
+    {
+        IOCCF7_ISR();
+    }
+}
+
+
+
+
+void IOCCF7_ISR(void) {
+
+
+
+
+    if(IOCCF7_InterruptHandler)
+    {
+        IOCCF7_InterruptHandler();
+    }
+    IOCCFbits.IOCCF7 = 0;
+}
+
+
+
+
+void IOCCF7_SetInterruptHandler(void (* InterruptHandler)(void)){
+    IOCCF7_InterruptHandler = InterruptHandler;
+}
+
+
+
+
+void IOCCF7_DefaultInterruptHandler(void){
+
+
 }

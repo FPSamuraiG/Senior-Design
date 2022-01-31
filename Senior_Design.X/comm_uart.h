@@ -16,6 +16,7 @@ extern "C" {
 #include "mcc_generated_files/uart1.h"
 
     void uart_send_string(char* msg);
+    void uart_btn_msg(void);
     
 #ifdef	__cplusplus
 }

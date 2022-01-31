@@ -43,6 +43,7 @@
 
 #include "mcc_generated_files/mcc.h"
 #include "comm_uart.h"
+#include "sleep.h"
 /*
                          Main application
  */
@@ -50,6 +51,8 @@ void main(void)
 {
     // Initialize the device
     SYSTEM_Initialize();
+    sleep_setup();
+    IOCCF7_SetInterruptHandler(uart_btn_msg);
     //INTERRUPT_GlobalInterruptEnable();
     
     uart_send_string("Test");
@@ -60,26 +63,48 @@ void main(void)
     // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global Interrupts
     // Use the following macros to:
 
-    // Enable the Global Interrupts
-    //INTERRUPT_GlobalInterruptEnable();
+    // Enable high priority global interrupts
+    //INTERRUPT_GlobalInterruptHighEnable();
 
-    // Disable the Global Interrupts
-    //INTERRUPT_GlobalInterruptDisable();
+    // Enable low priority global interrupts.
+    //INTERRUPT_GlobalInterruptLowEnable();
     
     bool pressed = false;
+    bool sleep_btn_pressed = false;
+    bool sleep_en = false;
     while (1)
     {
-        if (btn_GetValue() == LOW && pressed == false){
-            pressed = true;
-            uart_send_string("PSH");
-            printf("PSH2\n");
-            led_SetLow();
+        //Code for testing microcontroller
+        if (sleep_btn_GetValue() == LOW && sleep_btn_pressed == false){
+            sleep_en = !sleep_en;
+            sleep_btn_pressed = true;
         }
-        else if (btn_GetValue() == HIGH && pressed == true){
-            pressed = false;
+        else if (sleep_btn_GetValue() == HIGH && sleep_btn_pressed == true) {
+            sleep_btn_pressed = false;
         }
         
-        if (pressed == false) led_SetHigh();
+        if (sleep_en) {
+            for (int i = 0; i < 10; i++){
+                led_SetLow();
+                __delay_ms(500);
+                led_SetHigh();
+                __delay_ms(500);
+            }
+            sleep_enter();
+        }
+        else {
+            if (btn_GetValue() == LOW && pressed == false){
+                pressed = true;
+                uart_send_string("PSH");
+                printf("PSH2\n");
+                led_SetLow();
+            }
+            else if (btn_GetValue() == HIGH && pressed == true){
+                pressed = false;
+            }
+
+            if (pressed == false) led_SetHigh();
+        }
     }
 }
 /**

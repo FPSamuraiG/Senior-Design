@@ -153,6 +153,26 @@
 #define led_SetAnalogMode()      do { ANSELCbits.ANSELC1 = 1; } while(0)
 #define led_SetDigitalMode()     do { ANSELCbits.ANSELC1 = 0; } while(0)
 
+// get/set sleep_btn aliases
+#define sleep_btn_TRIS                 TRISCbits.TRISC7
+#define sleep_btn_LAT                  LATCbits.LATC7
+#define sleep_btn_PORT                 PORTCbits.RC7
+#define sleep_btn_WPU                  WPUCbits.WPUC7
+#define sleep_btn_OD                   ODCONCbits.ODCC7
+#define sleep_btn_ANS                  ANSELCbits.ANSELC7
+#define sleep_btn_SetHigh()            do { LATCbits.LATC7 = 1; } while(0)
+#define sleep_btn_SetLow()             do { LATCbits.LATC7 = 0; } while(0)
+#define sleep_btn_Toggle()             do { LATCbits.LATC7 = ~LATCbits.LATC7; } while(0)
+#define sleep_btn_GetValue()           PORTCbits.RC7
+#define sleep_btn_SetDigitalInput()    do { TRISCbits.TRISC7 = 1; } while(0)
+#define sleep_btn_SetDigitalOutput()   do { TRISCbits.TRISC7 = 0; } while(0)
+#define sleep_btn_SetPullup()          do { WPUCbits.WPUC7 = 1; } while(0)
+#define sleep_btn_ResetPullup()        do { WPUCbits.WPUC7 = 0; } while(0)
+#define sleep_btn_SetPushPull()        do { ODCONCbits.ODCC7 = 0; } while(0)
+#define sleep_btn_SetOpenDrain()       do { ODCONCbits.ODCC7 = 1; } while(0)
+#define sleep_btn_SetAnalogMode()      do { ANSELCbits.ANSELC7 = 1; } while(0)
+#define sleep_btn_SetDigitalMode()     do { ANSELCbits.ANSELC7 = 0; } while(0)
+
 /**
    @Param
     none
@@ -176,6 +196,90 @@ void PIN_MANAGER_Initialize (void);
     PIN_MANAGER_IOC();
  */
 void PIN_MANAGER_IOC(void);
+
+
+/**
+ * @Param
+    none
+ * @Returns
+    none
+ * @Description
+    Interrupt on Change Handler for the IOCCF7 pin functionality
+ * @Example
+    IOCCF7_ISR();
+ */
+void IOCCF7_ISR(void);
+
+/**
+  @Summary
+    Interrupt Handler Setter for IOCCF7 pin interrupt-on-change functionality
+
+  @Description
+    Allows selecting an interrupt handler for IOCCF7 at application runtime
+    
+  @Preconditions
+    Pin Manager intializer called
+
+  @Returns
+    None.
+
+  @Param
+    InterruptHandler function pointer.
+
+  @Example
+    PIN_MANAGER_Initialize();
+    IOCCF7_SetInterruptHandler(MyInterruptHandler);
+
+*/
+void IOCCF7_SetInterruptHandler(void (* InterruptHandler)(void));
+
+/**
+  @Summary
+    Dynamic Interrupt Handler for IOCCF7 pin
+
+  @Description
+    This is a dynamic interrupt handler to be used together with the IOCCF7_SetInterruptHandler() method.
+    This handler is called every time the IOCCF7 ISR is executed and allows any function to be registered at runtime.
+    
+  @Preconditions
+    Pin Manager intializer called
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    PIN_MANAGER_Initialize();
+    IOCCF7_SetInterruptHandler(IOCCF7_InterruptHandler);
+
+*/
+extern void (*IOCCF7_InterruptHandler)(void);
+
+/**
+  @Summary
+    Default Interrupt Handler for IOCCF7 pin
+
+  @Description
+    This is a predefined interrupt handler to be used together with the IOCCF7_SetInterruptHandler() method.
+    This handler is called every time the IOCCF7 ISR is executed. 
+    
+  @Preconditions
+    Pin Manager intializer called
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    PIN_MANAGER_Initialize();
+    IOCCF7_SetInterruptHandler(IOCCF7_DefaultInterruptHandler);
+
+*/
+void IOCCF7_DefaultInterruptHandler(void);
 
 
 

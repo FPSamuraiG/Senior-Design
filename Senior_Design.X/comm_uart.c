@@ -12,3 +12,7 @@ void uart_send_string(char* msg) {
         UART1_Write(msg[i]);
     }
 }
+
+void uart_btn_msg(void) {
+    uart_send_string("BTN1");
+}

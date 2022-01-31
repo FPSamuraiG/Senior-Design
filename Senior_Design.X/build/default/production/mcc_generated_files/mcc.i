@@ -22905,10 +22905,18 @@ unsigned char __t3rd16on(void);
 # 50 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/pin_manager.h" 1
-# 166 "mcc_generated_files/pin_manager.h"
+# 186 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 178 "mcc_generated_files/pin_manager.h"
+# 198 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
+# 211 "mcc_generated_files/pin_manager.h"
+void IOCCF7_ISR(void);
+# 234 "mcc_generated_files/pin_manager.h"
+void IOCCF7_SetInterruptHandler(void (* InterruptHandler)(void));
+# 258 "mcc_generated_files/pin_manager.h"
+extern void (*IOCCF7_InterruptHandler)(void);
+# 282 "mcc_generated_files/pin_manager.h"
+void IOCCF7_DefaultInterruptHandler(void);
 # 51 "mcc_generated_files/mcc.h" 2
 
 
@@ -22947,6 +22955,11 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 # 54 "mcc_generated_files/mcc.h" 2
+
+# 1 "mcc_generated_files/interrupt_manager.h" 1
+# 87 "mcc_generated_files/interrupt_manager.h"
+void INTERRUPT_Initialize (void);
+# 55 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/i2c1_master.h" 1
 # 54 "mcc_generated_files/i2c1_master.h"
@@ -23155,7 +23168,7 @@ void I2C1_SetAddressNackCallback(i2c1_callback_t cb, void *ptr);
 void I2C1_SetDataNackCallback(i2c1_callback_t cb, void *ptr);
 # 204 "mcc_generated_files/i2c1_master.h"
 void I2C1_SetTimeoutCallback(i2c1_callback_t cb, void *ptr);
-# 55 "mcc_generated_files/mcc.h" 2
+# 56 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/uart1.h" 1
 # 75 "mcc_generated_files/uart1.h"
@@ -23188,12 +23201,12 @@ void UART1_SetFramingErrorHandler(void (* interruptHandler)(void));
 void UART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
 # 432 "mcc_generated_files/uart1.h"
 void UART1_SetErrorHandler(void (* interruptHandler)(void));
-# 56 "mcc_generated_files/mcc.h" 2
-# 71 "mcc_generated_files/mcc.h"
+# 57 "mcc_generated_files/mcc.h" 2
+# 72 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 84 "mcc_generated_files/mcc.h"
+# 85 "mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 97 "mcc_generated_files/mcc.h"
+# 98 "mcc_generated_files/mcc.h"
 void PMD_Initialize(void);
 # 47 "mcc_generated_files/mcc.c" 2
 
@@ -23201,6 +23214,7 @@ void PMD_Initialize(void);
 
 void SYSTEM_Initialize(void)
 {
+    INTERRUPT_Initialize();
     PMD_Initialize();
     I2C1_Initialize();
     PIN_MANAGER_Initialize();

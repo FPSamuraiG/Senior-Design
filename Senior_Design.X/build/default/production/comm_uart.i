@@ -23143,6 +23143,7 @@ void UART1_SetErrorHandler(void (* interruptHandler)(void));
 
 
     void uart_send_string(char* msg);
+    void uart_btn_msg(void);
 # 8 "comm_uart.c" 2
 
 
@@ -23150,4 +23151,8 @@ void uart_send_string(char* msg) {
     for (int i = 0; i < strlen(msg); i++){
         UART1_Write(msg[i]);
     }
+}
+
+void uart_btn_msg(void) {
+    uart_send_string("BTN1");
 }

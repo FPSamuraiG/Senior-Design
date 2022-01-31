@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "sleep.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 44 "main.c"
+# 1 "sleep.c" 2
+
+# 1 "./sleep.h" 1
+# 15 "./sleep.h"
 # 1 "./mcc_generated_files/mcc.h" 1
 # 49 "./mcc_generated_files/mcc.h"
 # 1 "D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\\pic\\include\\xc.h" 1 3
@@ -23208,130 +23210,20 @@ void SYSTEM_Initialize(void);
 void OSCILLATOR_Initialize(void);
 # 98 "./mcc_generated_files/mcc.h"
 void PMD_Initialize(void);
-# 44 "main.c" 2
-
-# 1 "./comm_uart.h" 1
-# 15 "./comm_uart.h"
-# 1 "D:\\Programs\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\string.h" 1 3
-# 25 "D:\\Programs\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\string.h" 3
-# 1 "D:\\Programs\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 411 "D:\\Programs\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct __locale_struct * locale_t;
-# 25 "D:\\Programs\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\string.h" 2 3
+# 15 "./sleep.h" 2
 
 
-void *memcpy (void *restrict, const void *restrict, size_t);
-void *memmove (void *, const void *, size_t);
-void *memset (void *, int, size_t);
-int memcmp (const void *, const void *, size_t);
-void *memchr (const void *, int, size_t);
-
-char *strcpy (char *restrict, const char *restrict);
-char *strncpy (char *restrict, const char *restrict, size_t);
-
-char *strcat (char *restrict, const char *restrict);
-char *strncat (char *restrict, const char *restrict, size_t);
-
-int strcmp (const char *, const char *);
-int strncmp (const char *, const char *, size_t);
-
-int strcoll (const char *, const char *);
-size_t strxfrm (char *restrict, const char *restrict, size_t);
-
-char *strchr (const char *, int);
-char *strrchr (const char *, int);
-
-size_t strcspn (const char *, const char *);
-size_t strspn (const char *, const char *);
-char *strpbrk (const char *, const char *);
-char *strstr (const char *, const char *);
-char *strtok (char *restrict, const char *restrict);
-
-size_t strlen (const char *);
-
-char *strerror (int);
-# 65 "D:\\Programs\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\string.h" 3
-char *strtok_r (char *restrict, const char *restrict, char **restrict);
-int strerror_r (int, char *, size_t);
-char *stpcpy(char *restrict, const char *restrict);
-char *stpncpy(char *restrict, const char *restrict, size_t);
-size_t strnlen (const char *, size_t);
-char *strdup (const char *);
-char *strndup (const char *, size_t);
-char *strsignal(int);
-char *strerror_l (int, locale_t);
-int strcoll_l (const char *, const char *, locale_t);
-size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
-
-
-
-
-void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 15 "./comm_uart.h" 2
-
-
-
-    void uart_send_string(char* msg);
-    void uart_btn_msg(void);
-# 45 "main.c" 2
-
-# 1 "./sleep.h" 1
-# 17 "./sleep.h"
     void sleep_setup(void);
     void sleep_enter(void);
-# 46 "main.c" 2
+# 2 "sleep.c" 2
 
 
+void sleep_setup(void) {
+    IDLEN = 0;
+    DOZEN = 0;
+}
 
-
-void main(void)
-{
-
-    SYSTEM_Initialize();
-    sleep_setup();
-    IOCCF7_SetInterruptHandler(uart_btn_msg);
-
-
-    uart_send_string("Test");
-    printf("Test2\n\r");
-    do { LATCbits.LATC1 = 0; } while(0);
-    _delay((unsigned long)((1500)*(1000000/4000.0)));
-# 72 "main.c"
-    _Bool pressed = 0;
-    _Bool sleep_btn_pressed = 0;
-    _Bool sleep_en = 0;
-    while (1)
-    {
-
-        if (PORTCbits.RC7 == 0 && sleep_btn_pressed == 0){
-            sleep_en = !sleep_en;
-            sleep_btn_pressed = 1;
-        }
-        else if (PORTCbits.RC7 == 1 && sleep_btn_pressed == 1) {
-            sleep_btn_pressed = 0;
-        }
-
-        if (sleep_en) {
-            for (int i = 0; i < 10; i++){
-                do { LATCbits.LATC1 = 0; } while(0);
-                _delay((unsigned long)((500)*(1000000/4000.0)));
-                do { LATCbits.LATC1 = 1; } while(0);
-                _delay((unsigned long)((500)*(1000000/4000.0)));
-            }
-            sleep_enter();
-        }
-        else {
-            if (PORTCbits.RC0 == 0 && pressed == 0){
-                pressed = 1;
-                uart_send_string("PSH");
-                printf("PSH2\n");
-                do { LATCbits.LATC1 = 0; } while(0);
-            }
-            else if (PORTCbits.RC0 == 1 && pressed == 1){
-                pressed = 0;
-            }
-
-            if (pressed == 0) do { LATCbits.LATC1 = 1; } while(0);
-        }
-    }
+void sleep_enter(void) {
+    __asm(" sleep");
+    __nop();
 }

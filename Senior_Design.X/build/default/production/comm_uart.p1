@@ -2063,3 +2063,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;comm_uart.c: 14: }
 [e :UE 1871 ]
 }
+"16
+[; ;comm_uart.c: 16: void uart_btn_msg(void) {
+[v _uart_btn_msg `(v ~T0 @X0 1 ef ]
+{
+[e :U _uart_btn_msg ]
+[f ]
+"17
+[; ;comm_uart.c: 17:     uart_send_string("BTN1");
+[e ( _uart_send_string (1 :s 1C ]
+"18
+[; ;comm_uart.c: 18: }
+[e :UE 1876 ]
+}
+[a 1C 66 84 78 49 0 ]

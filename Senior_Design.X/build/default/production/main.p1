@@ -1,9 +1,19 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"71 ./mcc_generated_files/mcc.h
-[; ;./mcc_generated_files/mcc.h: 71: void SYSTEM_Initialize(void);
+"72 ./mcc_generated_files/mcc.h
+[; ;./mcc_generated_files/mcc.h: 72: void SYSTEM_Initialize(void);
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"18 ./comm_uart.h
+"17 ./sleep.h
+[; ;./sleep.h: 17:     void sleep_setup(void);
+[v _sleep_setup `(v ~T0 @X0 0 ef ]
+[v F13205 `(v ~T0 @X0 0 tf ]
+"234 ./mcc_generated_files/pin_manager.h
+[; ;./mcc_generated_files/pin_manager.h: 234: void IOCCF7_SetInterruptHandler(void (* InterruptHandler)(void));
+[v _IOCCF7_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F13205 ]
+"19 ./comm_uart.h
+[; ;./comm_uart.h: 19:     void uart_btn_msg(void);
+[v _uart_btn_msg `(v ~T0 @X0 0 ef ]
+"18
 [; ;./comm_uart.h: 18:     void uart_send_string(char* msg);
 [v _uart_send_string `(v ~T0 @X0 0 ef1`*uc ]
 "111 D:\Programs\Microchip\xc8\v2.32\pic\include\c99\stdio.h
@@ -34,6 +44,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37173
 [; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 37173: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x4D0)));
 [v _PORTCbits `VS1762 ~T0 @X0 0 e@1232 ]
+"18 ./sleep.h
+[; ;./sleep.h: 18:     void sleep_enter(void);
+[v _sleep_enter `(v ~T0 @X0 0 ef ]
 "270 D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h
 [; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 270: __asm("CLKRCON equ 039h");
 [; <" CLKRCON equ 039h ;# ">
@@ -2063,97 +2076,193 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h: 38547: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"49 main.c
-[; ;main.c: 49: void main(void)
+"50 main.c
+[; ;main.c: 50: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"50
-[; ;main.c: 50: {
+"51
+[; ;main.c: 51: {
 {
 [e :U _main ]
 [f ]
-"52
-[; ;main.c: 52:     SYSTEM_Initialize();
+"53
+[; ;main.c: 53:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
+"54
+[; ;main.c: 54:     sleep_setup();
+[e ( _sleep_setup ..  ]
 "55
-[; ;main.c: 55:     uart_send_string("Test");
+[; ;main.c: 55:     IOCCF7_SetInterruptHandler(uart_btn_msg);
+[e ( _IOCCF7_SetInterruptHandler (1 &U _uart_btn_msg ]
+"58
+[; ;main.c: 58:     uart_send_string("Test");
 [e ( _uart_send_string (1 :s 1C ]
-"56
-[; ;main.c: 56:     printf("Test2\n\r");
+"59
+[; ;main.c: 59:     printf("Test2\n\r");
 [e ( _printf :s 2C ]
-"57
-[; ;main.c: 57:     do { LATCbits.LATC1 = 0; } while(0);
+"60
+[; ;main.c: 60:     do { LATCbits.LATC1 = 0; } while(0);
 [e :U 1874 ]
 {
 [e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
 }
 [e :U 1873 ]
-"58
-[; ;main.c: 58:     _delay((unsigned long)((1500)*(1000000/4000.0)));
+"61
+[; ;main.c: 61:     _delay((unsigned long)((1500)*(1000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1500 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
-"69
-[; ;main.c: 69:     _Bool pressed = 0;
+"72
+[; ;main.c: 72:     _Bool pressed = 0;
 [v _pressed `a ~T0 @X0 1 a ]
 [e = _pressed -> -> 0 `i `a ]
-"70
-[; ;main.c: 70:     while (1)
-[e :U 1876 ]
-"71
-[; ;main.c: 71:     {
-{
-"72
-[; ;main.c: 72:         if (PORTCbits.RC0 == 0 && pressed == 0){
-[e $ ! && == -> . . _PORTCbits 0 0 `i -> 0 `i == -> _pressed `i -> 0 `i 1878  ]
-{
 "73
-[; ;main.c: 73:             pressed = 1;
-[e = _pressed -> -> 1 `i `a ]
+[; ;main.c: 73:     _Bool sleep_btn_pressed = 0;
+[v _sleep_btn_pressed `a ~T0 @X0 1 a ]
+[e = _sleep_btn_pressed -> -> 0 `i `a ]
 "74
-[; ;main.c: 74:             uart_send_string("PSH");
-[e ( _uart_send_string (1 :s 3C ]
+[; ;main.c: 74:     _Bool sleep_en = 0;
+[v _sleep_en `a ~T0 @X0 1 a ]
+[e = _sleep_en -> -> 0 `i `a ]
 "75
-[; ;main.c: 75:             printf("PSH2\n");
-[e ( _printf :s 4C ]
+[; ;main.c: 75:     while (1)
+[e :U 1876 ]
 "76
-[; ;main.c: 76:             do { LATCbits.LATC1 = 0; } while(0);
-[e :U 1881 ]
+[; ;main.c: 76:     {
+{
+"78
+[; ;main.c: 78:         if (PORTCbits.RC7 == 0 && sleep_btn_pressed == 0){
+[e $ ! && == -> . . _PORTCbits 0 7 `i -> 0 `i == -> _sleep_btn_pressed `i -> 0 `i 1878  ]
+{
+"79
+[; ;main.c: 79:             sleep_en = !sleep_en;
+[e = _sleep_en -> -> ! != -> _sleep_en `i -> 0 `i `i `a ]
+"80
+[; ;main.c: 80:             sleep_btn_pressed = 1;
+[e = _sleep_btn_pressed -> -> 1 `i `a ]
+"81
+[; ;main.c: 81:         }
+}
+[e $U 1879  ]
+"82
+[; ;main.c: 82:         else if (PORTCbits.RC7 == 1 && sleep_btn_pressed == 1) {
+[e :U 1878 ]
+[e $ ! && == -> . . _PORTCbits 0 7 `i -> 1 `i == -> _sleep_btn_pressed `i -> 1 `i 1880  ]
+{
+"83
+[; ;main.c: 83:             sleep_btn_pressed = 0;
+[e = _sleep_btn_pressed -> -> 0 `i `a ]
+"84
+[; ;main.c: 84:         }
+}
+[e :U 1880 ]
+[e :U 1879 ]
+"86
+[; ;main.c: 86:         if (sleep_en) {
+[e $ ! != -> _sleep_en `i -> 0 `i 1881  ]
+{
+"87
+[; ;main.c: 87:             for (int i = 0; i < 10; i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 10 `i 1882  ]
+[e $U 1883  ]
+[e :U 1882 ]
+{
+"88
+[; ;main.c: 88:                 do { LATCbits.LATC1 = 0; } while(0);
+[e :U 1887 ]
 {
 [e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
 }
-[e :U 1880 ]
-"77
-[; ;main.c: 77:         }
-}
-[e $U 1882  ]
-"78
-[; ;main.c: 78:         else if (PORTCbits.RC0 == 1 && pressed == 1){
-[e :U 1878 ]
-[e $ ! && == -> . . _PORTCbits 0 0 `i -> 1 `i == -> _pressed `i -> 1 `i 1883  ]
-{
-"79
-[; ;main.c: 79:             pressed = 0;
-[e = _pressed -> -> 0 `i `a ]
-"80
-[; ;main.c: 80:         }
-}
-[e :U 1883 ]
-[e :U 1882 ]
-"82
-[; ;main.c: 82:         if (pressed == 0) do { LATCbits.LATC1 = 1; } while(0);
-[e $ ! == -> _pressed `i -> 0 `i 1884  ]
-[e :U 1887 ]
+[e :U 1886 ]
+"89
+[; ;main.c: 89:                 _delay((unsigned long)((500)*(1000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
+"90
+[; ;main.c: 90:                 do { LATCbits.LATC1 = 1; } while(0);
+[e :U 1890 ]
 {
 [e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
 }
-[e :U 1886 ]
-[e :U 1884 ]
-"83
-[; ;main.c: 83:     }
+[e :U 1889 ]
+"91
+[; ;main.c: 91:                 _delay((unsigned long)((500)*(1000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
+"92
+[; ;main.c: 92:             }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 10 `i 1882  ]
+[e :U 1883 ]
+}
+"93
+[; ;main.c: 93:             sleep_enter();
+[e ( _sleep_enter ..  ]
+"94
+[; ;main.c: 94:         }
+}
+[e $U 1891  ]
+"95
+[; ;main.c: 95:         else {
+[e :U 1881 ]
+{
+"96
+[; ;main.c: 96:             if (PORTCbits.RC0 == 0 && pressed == 0){
+[e $ ! && == -> . . _PORTCbits 0 0 `i -> 0 `i == -> _pressed `i -> 0 `i 1892  ]
+{
+"97
+[; ;main.c: 97:                 pressed = 1;
+[e = _pressed -> -> 1 `i `a ]
+"98
+[; ;main.c: 98:                 uart_send_string("PSH");
+[e ( _uart_send_string (1 :s 3C ]
+"99
+[; ;main.c: 99:                 printf("PSH2\n");
+[e ( _printf :s 4C ]
+"100
+[; ;main.c: 100:                 do { LATCbits.LATC1 = 0; } while(0);
+[e :U 1895 ]
+{
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+}
+[e :U 1894 ]
+"101
+[; ;main.c: 101:             }
+}
+[e $U 1896  ]
+"102
+[; ;main.c: 102:             else if (PORTCbits.RC0 == 1 && pressed == 1){
+[e :U 1892 ]
+[e $ ! && == -> . . _PORTCbits 0 0 `i -> 1 `i == -> _pressed `i -> 1 `i 1897  ]
+{
+"103
+[; ;main.c: 103:                 pressed = 0;
+[e = _pressed -> -> 0 `i `a ]
+"104
+[; ;main.c: 104:             }
+}
+[e :U 1897 ]
+[e :U 1896 ]
+"106
+[; ;main.c: 106:             if (pressed == 0) do { LATCbits.LATC1 = 1; } while(0);
+[e $ ! == -> _pressed `i -> 0 `i 1898  ]
+[e :U 1901 ]
+{
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+}
+[e :U 1900 ]
+[e :U 1898 ]
+"107
+[; ;main.c: 107:         }
+}
+[e :U 1891 ]
+"108
+[; ;main.c: 108:     }
 }
 [e :U 1875 ]
 [e $U 1876  ]
 [e :U 1877 ]
-"84
-[; ;main.c: 84: }
+"109
+[; ;main.c: 109: }
 [e :UE 1871 ]
 }
 [p f _printf 8388608 ]

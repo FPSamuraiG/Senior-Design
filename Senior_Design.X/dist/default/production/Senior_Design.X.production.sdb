@@ -63,6 +63,9 @@ I2C1_NULL 5
 ]
 "10 D:\Coding\Senior Design\Senior_Design.X\comm_uart.c
 [v _uart_send_string uart_send_string `(v  1 e 1 0 ]
+[v i2_uart_send_string uart_send_string `(v  1 e 1 0 ]
+"16
+[v _uart_btn_msg uart_btn_msg `(v  1 e 1 0 ]
 "692 D:\Programs\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
 [v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
 "1390
@@ -95,11 +98,12 @@ I2C1_NULL 5
 [v ___flmul __flmul `(d  1 e 4 0 ]
 "5 D:\Programs\Microchip\xc8\v2.32\pic\sources\c99\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
+[v i2_strlen strlen `(ui  1 e 2 0 ]
 "15 D:\Programs\Microchip\xc8\v2.32\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 D:\Programs\Microchip\xc8\v2.32\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"49 D:\Coding\Senior Design\Senior_Design.X\main.c
+"50 D:\Coding\Senior Design\Senior_Design.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "142 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/examples/i2c1_master_example.c
 [v _rd1RegCompleteHandler rd1RegCompleteHandler `(E360  1 s 1 rd1RegCompleteHandler ]
@@ -231,20 +235,33 @@ I2C1_NULL 5
 [v _I2C1_MasterClearIrq I2C1_MasterClearIrq `T(v  1 s 1 I2C1_MasterClearIrq ]
 "812
 [v _I2C1_MasterWaitForEvent I2C1_MasterWaitForEvent `T(v  1 s 1 I2C1_MasterWaitForEvent ]
+"52 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
+"58
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `IIH(v  1 e 1 0 ]
 "50 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"59
+"60
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
-"75
+"76
 [v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
-"55 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/pin_manager.c
+"57 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+"136
+[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
+"148
+[v _IOCCF7_ISR IOCCF7_ISR `(v  1 e 1 0 ]
+"163
+[v _IOCCF7_SetInterruptHandler IOCCF7_SetInterruptHandler `(v  1 e 1 0 ]
+"170
+[v _IOCCF7_DefaultInterruptHandler IOCCF7_DefaultInterruptHandler `(v  1 e 1 0 ]
 "66 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/uart1.c
 [v _UART1_Initialize UART1_Initialize `(v  1 e 1 0 ]
 "145
 [v _UART1_Read UART1_Read `(uc  1 e 1 0 ]
 "170
 [v _UART1_Write UART1_Write `(v  1 e 1 0 ]
+[v i2_UART1_Write UART1_Write `(v  1 e 1 0 ]
 "184
 [v _putch putch `(v  1 e 1 0 ]
 "193
@@ -259,6 +276,10 @@ I2C1_NULL 5
 [v _UART1_SetOverrunErrorHandler UART1_SetOverrunErrorHandler `(v  1 e 1 0 ]
 "208
 [v _UART1_SetErrorHandler UART1_SetErrorHandler `(v  1 e 1 0 ]
+"4 D:\Coding\Senior Design\Senior_Design.X\sleep.c
+[v _sleep_setup sleep_setup `(v  1 e 1 0 ]
+"9
+[v _sleep_enter sleep_enter `(v  1 e 1 0 ]
 "1210 D:/Programs/MPLAB/packs/Microchip/PIC18F-Q_DFP/1.11.185/xc8\pic\include\proc\pic18f16q41.h
 [v _PMD0 PMD0 `VEuc  1 e 1 @99 ]
 "1267
@@ -305,7 +326,7 @@ I2C1_NULL 5
 [v _I2C1CNTH I2C1CNTH `VEuc  1 e 1 @653 ]
 "13915
 [v _I2C1CON0 I2C1CON0 `VEuc  1 e 1 @660 ]
-[s S513 . 1 `uc 1 MODE 1 0 :3:0 
+[s S517 . 1 `uc 1 MODE 1 0 :3:0 
 `uc 1 MDR 1 0 :1:3 
 `uc 1 CSTR 1 0 :1:4 
 `uc 1 S 1 0 :1:5 
@@ -313,17 +334,17 @@ I2C1_NULL 5
 `uc 1 EN 1 0 :1:7 
 ]
 "13937
-[s S520 . 1 `uc 1 MODE0 1 0 :1:0 
+[s S524 . 1 `uc 1 MODE0 1 0 :1:0 
 `uc 1 MODE1 1 0 :1:1 
 `uc 1 MODE2 1 0 :1:2 
 `uc 1 . 1 0 :4:3 
 `uc 1 I2CEN 1 0 :1:7 
 ]
-[u S526 . 1 `S513 1 . 1 0 `S520 1 . 1 0 ]
-[v _I2C1CON0bits I2C1CON0bits `VES526  1 e 1 @660 ]
+[u S530 . 1 `S517 1 . 1 0 `S524 1 . 1 0 ]
+[v _I2C1CON0bits I2C1CON0bits `VES530  1 e 1 @660 ]
 "13992
 [v _I2C1CON1 I2C1CON1 `VEuc  1 e 1 @661 ]
-[s S566 . 1 `uc 1 CSD 1 0 :1:0 
+[s S570 . 1 `uc 1 CSD 1 0 :1:0 
 `uc 1 TXU 1 0 :1:1 
 `uc 1 RXO 1 0 :1:2 
 `uc 1 P 1 0 :1:3 
@@ -333,13 +354,13 @@ I2C1_NULL 5
 `uc 1 ACKCNT 1 0 :1:7 
 ]
 "14009
-[u S575 . 1 `S566 1 . 1 0 ]
-[v _I2C1CON1bits I2C1CON1bits `VES575  1 e 1 @661 ]
+[u S579 . 1 `S570 1 . 1 0 ]
+[v _I2C1CON1bits I2C1CON1bits `VES579  1 e 1 @661 ]
 "14054
 [v _I2C1CON2 I2C1CON2 `VEuc  1 e 1 @662 ]
 "14130
 [v _I2C1ERR I2C1ERR `VEuc  1 e 1 @663 ]
-[s S587 . 1 `uc 1 NACKIE 1 0 :1:0 
+[s S591 . 1 `uc 1 NACKIE 1 0 :1:0 
 `uc 1 BCLIE 1 0 :1:1 
 `uc 1 BTOIE 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -348,7 +369,7 @@ I2C1_NULL 5
 `uc 1 BTOIF 1 0 :1:6 
 ]
 "14155
-[s S595 . 1 `uc 1 NACK1IE 1 0 :1:0 
+[s S599 . 1 `uc 1 NACK1IE 1 0 :1:0 
 `uc 1 BCL1IE 1 0 :1:1 
 `uc 1 BTO1IE 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -356,9 +377,9 @@ I2C1_NULL 5
 `uc 1 BCL1IF 1 0 :1:5 
 `uc 1 BTO1IF 1 0 :1:6 
 ]
-[u S603 . 1 `S587 1 . 1 0 `S595 1 . 1 0 ]
-[v _I2C1ERRbits I2C1ERRbits `VES603  1 e 1 @663 ]
-[s S543 . 1 `uc 1 RXBF 1 0 :1:0 
+[u S607 . 1 `S591 1 . 1 0 `S599 1 . 1 0 ]
+[v _I2C1ERRbits I2C1ERRbits `VES607  1 e 1 @663 ]
+[s S547 . 1 `uc 1 RXBF 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 CLRBF 1 0 :1:2 
 `uc 1 RXRE 1 0 :1:3 
@@ -368,11 +389,11 @@ I2C1_NULL 5
 `uc 1 TXWE 1 0 :1:7 
 ]
 "14327
-[u S552 . 1 `S543 1 . 1 0 ]
-[v _I2C1STAT1bits I2C1STAT1bits `VES552  1 e 1 @665 ]
+[u S556 . 1 `S547 1 . 1 0 ]
+[v _I2C1STAT1bits I2C1STAT1bits `VES556  1 e 1 @665 ]
 "14357
 [v _I2C1PIR I2C1PIR `VEuc  1 e 1 @666 ]
-[s S623 . 1 `uc 1 SCIF 1 0 :1:0 
+[s S627 . 1 `uc 1 SCIF 1 0 :1:0 
 `uc 1 RSCIF 1 0 :1:1 
 `uc 1 PCIF 1 0 :1:2 
 `uc 1 ADRIF 1 0 :1:3 
@@ -382,7 +403,7 @@ I2C1_NULL 5
 `uc 1 CNTIF 1 0 :1:7 
 ]
 "14384
-[s S632 . 1 `uc 1 SC1IF 1 0 :1:0 
+[s S636 . 1 `uc 1 SC1IF 1 0 :1:0 
 `uc 1 RSC1IF 1 0 :1:1 
 `uc 1 PC1IF 1 0 :1:2 
 `uc 1 ADR1IF 1 0 :1:3 
@@ -391,11 +412,11 @@ I2C1_NULL 5
 `uc 1 ACKT1IF 1 0 :1:6 
 `uc 1 CNT1IF 1 0 :1:7 
 ]
-[u S641 . 1 `S623 1 . 1 0 `S632 1 . 1 0 ]
-[v _I2C1PIRbits I2C1PIRbits `VES641  1 e 1 @666 ]
+[u S645 . 1 `S627 1 . 1 0 `S636 1 . 1 0 ]
+[v _I2C1PIRbits I2C1PIRbits `VES645  1 e 1 @666 ]
 "14459
 [v _I2C1PIE I2C1PIE `VEuc  1 e 1 @667 ]
-[s S684 . 1 `uc 1 SCIE 1 0 :1:0 
+[s S688 . 1 `uc 1 SCIE 1 0 :1:0 
 `uc 1 RSCIE 1 0 :1:1 
 `uc 1 PCIE 1 0 :1:2 
 `uc 1 ADRIE 1 0 :1:3 
@@ -405,7 +426,7 @@ I2C1_NULL 5
 `uc 1 CNTIE 1 0 :1:7 
 ]
 "14486
-[s S693 . 1 `uc 1 SC1IE 1 0 :1:0 
+[s S697 . 1 `uc 1 SC1IE 1 0 :1:0 
 `uc 1 RSC1IE 1 0 :1:1 
 `uc 1 PC1IE 1 0 :1:2 
 `uc 1 ADR1IE 1 0 :1:3 
@@ -414,8 +435,8 @@ I2C1_NULL 5
 `uc 1 ACKT1IE 1 0 :1:6 
 `uc 1 CNT1IE 1 0 :1:7 
 ]
-[u S702 . 1 `S684 1 . 1 0 `S693 1 . 1 0 ]
-[v _I2C1PIEbits I2C1PIEbits `VES702  1 e 1 @667 ]
+[u S706 . 1 `S688 1 . 1 0 `S697 1 . 1 0 ]
+[v _I2C1PIEbits I2C1PIEbits `VES706  1 e 1 @667 ]
 "14651
 [v _I2C1CLK I2C1CLK `VEuc  1 e 1 @670 ]
 "14823
@@ -436,31 +457,31 @@ I2C1_NULL 5
 [v _U1P3H U1P3H `VEuc  1 e 1 @682 ]
 "15080
 [v _U1CON0 U1CON0 `VEuc  1 e 1 @683 ]
-[s S1059 . 1 `uc 1 MODE0 1 0 :1:0 
+[s S1063 . 1 `uc 1 MODE0 1 0 :1:0 
 `uc 1 MODE1 1 0 :1:1 
 `uc 1 MODE2 1 0 :1:2 
 `uc 1 MODE3 1 0 :1:3 
 ]
 "15113
-[s S1064 . 1 `uc 1 U1MODE 1 0 :4:0 
+[s S1068 . 1 `uc 1 U1MODE 1 0 :4:0 
 `uc 1 U1RXEN 1 0 :1:4 
 `uc 1 U1TXEN 1 0 :1:5 
 `uc 1 U1ABDEN 1 0 :1:6 
 `uc 1 U1BRGS 1 0 :1:7 
 ]
-[s S1070 . 1 `uc 1 U1MODE0 1 0 :1:0 
+[s S1074 . 1 `uc 1 U1MODE0 1 0 :1:0 
 `uc 1 U1MODE1 1 0 :1:1 
 `uc 1 U1MODE2 1 0 :1:2 
 `uc 1 U1MODE3 1 0 :1:3 
 ]
-[s S1075 . 1 `uc 1 MODE 1 0 :4:0 
+[s S1079 . 1 `uc 1 MODE 1 0 :4:0 
 `uc 1 RXEN 1 0 :1:4 
 `uc 1 TXEN 1 0 :1:5 
 `uc 1 ABDEN 1 0 :1:6 
 `uc 1 BRGS 1 0 :1:7 
 ]
-[u S1081 . 1 `S1059 1 . 1 0 `S1064 1 . 1 0 `S1070 1 . 1 0 `S1075 1 . 1 0 ]
-[v _U1CON0bits U1CON0bits `VES1081  1 e 1 @683 ]
+[u S1085 . 1 `S1063 1 . 1 0 `S1068 1 . 1 0 `S1074 1 . 1 0 `S1079 1 . 1 0 ]
+[v _U1CON0bits U1CON0bits `VES1085  1 e 1 @683 ]
 "15208
 [v _U1CON1 U1CON1 `VEuc  1 e 1 @684 ]
 "15288
@@ -475,7 +496,7 @@ I2C1_NULL 5
 [v _U1UIR U1UIR `VEuc  1 e 1 @689 ]
 "15663
 [v _U1ERRIR U1ERRIR `VEuc  1 e 1 @690 ]
-[s S1109 . 1 `uc 1 TXCIF 1 0 :1:0 
+[s S1113 . 1 `uc 1 TXCIF 1 0 :1:0 
 `uc 1 RXFOIF 1 0 :1:1 
 `uc 1 RXBKIF 1 0 :1:2 
 `uc 1 FERIF 1 0 :1:3 
@@ -485,7 +506,7 @@ I2C1_NULL 5
 `uc 1 TXMTIF 1 0 :1:7 
 ]
 "15690
-[s S1118 . 1 `uc 1 U1TXCIF 1 0 :1:0 
+[s S1122 . 1 `uc 1 U1TXCIF 1 0 :1:0 
 `uc 1 U1RXFOIF 1 0 :1:1 
 `uc 1 U1RXBKIF 1 0 :1:2 
 `uc 1 U1FERIF 1 0 :1:3 
@@ -494,8 +515,8 @@ I2C1_NULL 5
 `uc 1 U1PERIF 1 0 :1:6 
 `uc 1 U1TXMTIF 1 0 :1:7 
 ]
-[u S1127 . 1 `S1109 1 . 1 0 `S1118 1 . 1 0 ]
-[v _U1ERRIRbits U1ERRIRbits `VES1127  1 e 1 @690 ]
+[u S1131 . 1 `S1113 1 . 1 0 `S1122 1 . 1 0 ]
+[v _U1ERRIRbits U1ERRIRbits `VES1131  1 e 1 @690 ]
 "15775
 [v _U1ERRIE U1ERRIE `VEuc  1 e 1 @691 ]
 "31628
@@ -528,7 +549,59 @@ I2C1_NULL 5
 [v _SLRCONC SLRCONC `VEuc  1 e 1 @1043 ]
 "32573
 [v _INLVLC INLVLC `VEuc  1 e 1 @1044 ]
-[s S663 . 1 `uc 1 I2C1RXIE 1 0 :1:0 
+[s S1286 . 1 `uc 1 IOCCP0 1 0 :1:0 
+`uc 1 IOCCP1 1 0 :1:1 
+`uc 1 IOCCP2 1 0 :1:2 
+`uc 1 IOCCP3 1 0 :1:3 
+`uc 1 IOCCP4 1 0 :1:4 
+`uc 1 IOCCP5 1 0 :1:5 
+`uc 1 IOCCP6 1 0 :1:6 
+`uc 1 IOCCP7 1 0 :1:7 
+]
+"32652
+[u S1295 . 1 `S1286 1 . 1 0 ]
+[v _IOCCPbits IOCCPbits `VES1295  1 e 1 @1045 ]
+[s S1265 . 1 `uc 1 IOCCN0 1 0 :1:0 
+`uc 1 IOCCN1 1 0 :1:1 
+`uc 1 IOCCN2 1 0 :1:2 
+`uc 1 IOCCN3 1 0 :1:3 
+`uc 1 IOCCN4 1 0 :1:4 
+`uc 1 IOCCN5 1 0 :1:5 
+`uc 1 IOCCN6 1 0 :1:6 
+`uc 1 IOCCN7 1 0 :1:7 
+]
+"32714
+[u S1274 . 1 `S1265 1 . 1 0 ]
+[v _IOCCNbits IOCCNbits `VES1274  1 e 1 @1046 ]
+[s S1244 . 1 `uc 1 IOCCF0 1 0 :1:0 
+`uc 1 IOCCF1 1 0 :1:1 
+`uc 1 IOCCF2 1 0 :1:2 
+`uc 1 IOCCF3 1 0 :1:3 
+`uc 1 IOCCF4 1 0 :1:4 
+`uc 1 IOCCF5 1 0 :1:5 
+`uc 1 IOCCF6 1 0 :1:6 
+`uc 1 IOCCF7 1 0 :1:7 
+]
+"32776
+[u S1253 . 1 `S1244 1 . 1 0 ]
+"32776
+"32776
+[v _IOCCFbits IOCCFbits `VES1253  1 e 1 @1047 ]
+[s S1317 . 1 `uc 1 SWIE 1 0 :1:0 
+`uc 1 HLVDIE 1 0 :1:1 
+`uc 1 OSFIE 1 0 :1:2 
+`uc 1 CSWIE 1 0 :1:3 
+`uc 1 NVMIE 1 0 :1:4 
+`uc 1 CLC1IE 1 0 :1:5 
+`uc 1 CRCIE 1 0 :1:6 
+`uc 1 IOCIE 1 0 :1:7 
+]
+"35493
+[u S1326 . 1 `S1317 1 . 1 0 ]
+"35493
+"35493
+[v _PIE0bits PIE0bits `VES1326  1 e 1 @1192 ]
+[s S667 . 1 `uc 1 I2C1RXIE 1 0 :1:0 
 `uc 1 I2C1TXIE 1 0 :1:1 
 `uc 1 I2C1IE 1 0 :1:2 
 `uc 1 I2C1EIE 1 0 :1:3 
@@ -538,11 +611,25 @@ I2C1_NULL 5
 `uc 1 PWM3IE 1 0 :1:7 
 ]
 "35918
-[u S672 . 1 `S663 1 . 1 0 ]
+[u S676 . 1 `S667 1 . 1 0 ]
 "35918
 "35918
-[v _PIE7bits PIE7bits `VES672  1 e 1 @1199 ]
-[s S1038 . 1 `uc 1 U1RXIF 1 0 :1:0 
+[v _PIE7bits PIE7bits `VES676  1 e 1 @1199 ]
+[s S1551 . 1 `uc 1 SWIF 1 0 :1:0 
+`uc 1 HLVDIF 1 0 :1:1 
+`uc 1 OSFIF 1 0 :1:2 
+`uc 1 CSWIF 1 0 :1:3 
+`uc 1 NVMIF 1 0 :1:4 
+`uc 1 CLC1IF 1 0 :1:5 
+`uc 1 CRCIF 1 0 :1:6 
+`uc 1 IOCIF 1 0 :1:7 
+]
+"36140
+[u S1560 . 1 `S1551 1 . 1 0 ]
+"36140
+"36140
+[v _PIR0bits PIR0bits `VES1560  1 e 1 @1203 ]
+[s S1042 . 1 `uc 1 U1RXIF 1 0 :1:0 
 `uc 1 U1TXIF 1 0 :1:1 
 `uc 1 U1EIF 1 0 :1:2 
 `uc 1 U1IF 1 0 :1:3 
@@ -552,11 +639,11 @@ I2C1_NULL 5
 `uc 1 PWM1IF 1 0 :1:7 
 ]
 "36380
-[u S1047 . 1 `S1038 1 . 1 0 ]
+[u S1051 . 1 `S1042 1 . 1 0 ]
 "36380
 "36380
-[v _PIR4bits PIR4bits `VES1047  1 e 1 @1207 ]
-[s S724 . 1 `uc 1 I2C1RXIF 1 0 :1:0 
+[v _PIR4bits PIR4bits `VES1051  1 e 1 @1207 ]
+[s S728 . 1 `uc 1 I2C1RXIF 1 0 :1:0 
 `uc 1 I2C1TXIF 1 0 :1:1 
 `uc 1 I2C1IF 1 0 :1:2 
 `uc 1 I2C1EIF 1 0 :1:3 
@@ -566,17 +653,17 @@ I2C1_NULL 5
 `uc 1 PWM3IF 1 0 :1:7 
 ]
 "36565
-[u S733 . 1 `S724 1 . 1 0 ]
+[u S737 . 1 `S728 1 . 1 0 ]
 "36565
 "36565
-[v _PIR7bits PIR7bits `VES733  1 e 1 @1210 ]
+[v _PIR7bits PIR7bits `VES737  1 e 1 @1210 ]
 "36770
 [v _LATA LATA `VEuc  1 e 1 @1214 ]
 "36815
 [v _LATB LATB `VEuc  1 e 1 @1215 ]
 "36854
 [v _LATC LATC `VEuc  1 e 1 @1216 ]
-[s S1258 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S1412 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -586,17 +673,17 @@ I2C1_NULL 5
 `uc 1 LATC7 1 0 :1:7 
 ]
 "36871
-[u S1267 . 1 `S1258 1 . 1 0 ]
+[u S1421 . 1 `S1412 1 . 1 0 ]
 "36871
 "36871
-[v _LATCbits LATCbits `VES1267  1 e 1 @1216 ]
+[v _LATCbits LATCbits `VES1421  1 e 1 @1216 ]
 "36916
 [v _TRISA TRISA `VEuc  1 e 1 @1222 ]
 "36966
 [v _TRISB TRISB `VEuc  1 e 1 @1223 ]
 "37005
 [v _TRISC TRISC `VEuc  1 e 1 @1224 ]
-[s S1285 . 1 `uc 1 RC0 1 0 :1:0 
+[s S1439 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -606,10 +693,31 @@ I2C1_NULL 5
 `uc 1 RC7 1 0 :1:7 
 ]
 "37173
-[u S1294 . 1 `S1285 1 . 1 0 ]
+[u S1448 . 1 `S1439 1 . 1 0 ]
 "37173
 "37173
-[v _PORTCbits PORTCbits `VES1294  1 e 1 @1232 ]
+[v _PORTCbits PORTCbits `VES1448  1 e 1 @1232 ]
+[s S1513 . 1 `uc 1 INT0EDG 1 0 :1:0 
+`uc 1 INT1EDG 1 0 :1:1 
+`uc 1 INT2EDG 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 IPEN 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"37238
+[s S1521 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 GIEH 1 0 :1:7 
+]
+"37238
+[u S1524 . 1 `S1513 1 . 1 0 `S1521 1 . 1 0 ]
+"37238
+"37238
+[v _INTCON0bits INTCON0bits `VES1524  1 e 1 @1238 ]
+"41473
+[v _DOZEN DOZEN `VEb  1 e 0 @10134 ]
+"42148
+[v _IDLEN IDLEN `VEb  1 e 0 @10135 ]
 "55 D:\Programs\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
 [v _flags flags `i  1 s 2 flags ]
 [v _prec prec `i  1 s 2 prec ]
@@ -618,88 +726,106 @@ I2C1_NULL 5
 [v _nout nout `i  1 s 2 nout ]
 "159 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/i2c1_master.c
 [v _i2c1_fsmStateTable i2c1_fsmStateTable `C[19]*.37(E13591  1 e 38 0 ]
-[s S298 . 36 `[6]*.37(E360 1 callbackTable 12 0 `[6]*.39v 1 callbackPayload 12 12 `us 1 time_out 2 24 `us 1 time_out_value 2 26 `uc 1 address 1 28 `*.39uc 1 data_ptr 2 29 `ui 1 data_length 2 31 `E13591 1 state 1 33 `E355 1 error 1 34 `uc 1 addressNackCheck 1 35 :2:0 
+[s S302 . 36 `[6]*.37(E360 1 callbackTable 12 0 `[6]*.39v 1 callbackPayload 12 12 `us 1 time_out 2 24 `us 1 time_out_value 2 26 `uc 1 address 1 28 `*.39uc 1 data_ptr 2 29 `ui 1 data_length 2 31 `E13591 1 state 1 33 `E355 1 error 1 34 `uc 1 addressNackCheck 1 35 :2:0 
 `uc 1 busy 1 35 :1:2 
 `uc 1 inUse 1 35 :1:3 
 `uc 1 bufferFree 1 35 :1:4 
 ]
 "181
-[v _I2C1_Status I2C1_Status `S298  1 e 36 0 ]
-[s S982 . 1 `uc 1 perr 1 0 :1:0 
+[v _I2C1_Status I2C1_Status `S302  1 e 36 0 ]
+"54 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/pin_manager.c
+[v _IOCCF7_InterruptHandler IOCCF7_InterruptHandler `*.37(v  1 e 2 0 ]
+[s S986 . 1 `uc 1 perr 1 0 :1:0 
 `uc 1 ferr 1 0 :1:1 
 `uc 1 oerr 1 0 :1:2 
 `uc 1 reserved 1 0 :5:3 
 ]
 "53 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/uart1.c
-[u S987 . 1 `S982 1 . 1 0 `uc 1 status 1 0 ]
-[v _uart1RxLastError uart1RxLastError `VES987  1 s 1 uart1RxLastError ]
+[u S991 . 1 `S986 1 . 1 0 `uc 1 status 1 0 ]
+[v _uart1RxLastError uart1RxLastError `VES991  1 s 1 uart1RxLastError ]
 "58
 [v _UART1_FramingErrorHandler UART1_FramingErrorHandler `*.37(v  1 e 2 0 ]
 "59
 [v _UART1_OverrunErrorHandler UART1_OverrunErrorHandler `*.37(v  1 e 2 0 ]
 "60
 [v _UART1_ErrorHandler UART1_ErrorHandler `*.37(v  1 e 2 0 ]
-"49 D:\Coding\Senior Design\Senior_Design.X\main.c
+"50 D:\Coding\Senior Design\Senior_Design.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"69
-[v main@pressed pressed `a  1 a 1 31 ]
-"84
+"87
+[v main@i i `i  1 a 2 10 ]
+"72
+[v main@pressed pressed `a  1 a 1 14 ]
+"73
+[v main@sleep_btn_pressed sleep_btn_pressed `a  1 a 1 13 ]
+"74
+[v main@sleep_en sleep_en `a  1 a 1 12 ]
+"109
 } 0
 "10 D:\Coding\Senior Design\Senior_Design.X\comm_uart.c
 [v _uart_send_string uart_send_string `(v  1 e 1 0 ]
 {
 "11
-[v uart_send_string@i i `i  1 a 2 8 ]
+[v uart_send_string@i i `i  1 a 2 22 ]
 "10
-[v uart_send_string@msg msg `*.32uc  1 p 2 4 ]
+[v uart_send_string@msg msg `*.32uc  1 p 2 18 ]
 "14
 } 0
 "5 D:\Programs\Microchip\xc8\v2.32\pic\sources\c99\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
 {
 "7
-[v strlen@a a `*.32Cuc  1 a 2 2 ]
+[v strlen@a a `*.32Cuc  1 a 2 16 ]
 "5
-[v strlen@s s `*.32Cuc  1 p 2 0 ]
+[v strlen@s s `*.32Cuc  1 p 2 14 ]
+"12
+} 0
+"4 D:\Coding\Senior Design\Senior_Design.X\sleep.c
+[v _sleep_setup sleep_setup `(v  1 e 1 0 ]
+{
+"7
+} 0
+"9
+[v _sleep_enter sleep_enter `(v  1 e 1 0 ]
+{
 "12
 } 0
 "5 D:\Programs\Microchip\xc8\v2.32\pic\sources\c99\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
 {
 "8
-[v printf@ap ap `[1]*.39v  1 a 2 27 ]
+[v printf@ap ap `[1]*.39v  1 a 2 6 ]
 "5
-[v printf@fmt fmt `*.32Cuc  1 p 2 25 ]
+[v printf@fmt fmt `*.32Cuc  1 p 2 33 ]
 "13
 } 0
 "1390 D:\Programs\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
 "1393
-[v vfprintf@cfmt cfmt `*.32uc  1 a 2 23 ]
-[s S1799 _IO_FILE 0 ]
+[v vfprintf@cfmt cfmt `*.32uc  1 a 2 31 ]
+[s S2052 _IO_FILE 0 ]
 "1390
-[v vfprintf@fp fp `*.2S1799  1 p 2 17 ]
-[v vfprintf@fmt fmt `*.32Cuc  1 p 2 19 ]
-[v vfprintf@ap ap `*.39*.39v  1 p 2 21 ]
+[v vfprintf@fp fp `*.2S2052  1 p 2 0 ]
+[v vfprintf@fmt fmt `*.32Cuc  1 p 2 2 ]
+[v vfprintf@ap ap `*.39*.39v  1 p 2 4 ]
 "1404
 } 0
 "692
 [v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
 {
-[s S1799 _IO_FILE 0 ]
-[v vfpfcnvrt@fp fp `*.2S1799  1 p 2 11 ]
-[v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 13 ]
-[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 15 ]
+[s S2052 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.2S2052  1 p 2 25 ]
+[v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 27 ]
+[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 29 ]
 "1387
 } 0
 "8 D:\Programs\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
-[v fputc@c c `i  1 p 2 2 ]
-[s S1783 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputc@fp fp `*.2S1783  1 p 2 4 ]
+[v fputc@c c `i  1 p 2 16 ]
+[s S2036 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputc@fp fp `*.2S2036  1 p 2 18 ]
 "24
 } 0
 "184 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/uart1.c
@@ -708,7 +834,7 @@ I2C1_NULL 5
 [v putch@txData txData `uc  1 a 1 wreg ]
 [v putch@txData txData `uc  1 a 1 wreg ]
 "186
-[v putch@txData txData `uc  1 a 1 1 ]
+[v putch@txData txData `uc  1 a 1 15 ]
 "187
 } 0
 "170
@@ -716,13 +842,13 @@ I2C1_NULL 5
 {
 [v UART1_Write@txData txData `uc  1 a 1 wreg ]
 [v UART1_Write@txData txData `uc  1 a 1 wreg ]
-[v UART1_Write@txData txData `uc  1 a 1 0 ]
+[v UART1_Write@txData txData `uc  1 a 1 14 ]
 "177
 } 0
 "50 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-"57
+"58
 } 0
 "66 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/uart1.c
 [v _UART1_Initialize UART1_Initialize `(v  1 e 1 0 ]
@@ -732,38 +858,100 @@ I2C1_NULL 5
 "204
 [v _UART1_SetOverrunErrorHandler UART1_SetOverrunErrorHandler `(v  1 e 1 0 ]
 {
-[v UART1_SetOverrunErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
+[v UART1_SetOverrunErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 14 ]
 "206
 } 0
 "200
 [v _UART1_SetFramingErrorHandler UART1_SetFramingErrorHandler `(v  1 e 1 0 ]
 {
-[v UART1_SetFramingErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
+[v UART1_SetFramingErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 14 ]
 "202
 } 0
 "208
 [v _UART1_SetErrorHandler UART1_SetErrorHandler `(v  1 e 1 0 ]
 {
-[v UART1_SetErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
+[v UART1_SetErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 14 ]
 "210
 } 0
-"75 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/mcc.c
+"76 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/mcc.c
 [v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
 {
-"89
+"90
 } 0
-"55 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/pin_manager.c
+"57 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 {
-"119
+"134
 } 0
-"59 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/mcc.c
+"163
+[v _IOCCF7_SetInterruptHandler IOCCF7_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v IOCCF7_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 14 ]
+"165
+} 0
+"60 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
-"73
+"74
+} 0
+"52 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
+{
+"56
 } 0
 "183 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/i2c1_master.c
 [v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
 {
 "203
+} 0
+"58 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `IIH(v  1 e 1 0 ]
+{
+"69
+} 0
+"136 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
+{
+"143
+} 0
+"148
+[v _IOCCF7_ISR IOCCF7_ISR `(v  1 e 1 0 ]
+{
+"158
+} 0
+"170
+[v _IOCCF7_DefaultInterruptHandler IOCCF7_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"173
+} 0
+"16 D:\Coding\Senior Design\Senior_Design.X\comm_uart.c
+[v _uart_btn_msg uart_btn_msg `(v  1 e 1 0 ]
+{
+"18
+} 0
+"10
+[v i2_uart_send_string uart_send_string `(v  1 e 1 0 ]
+{
+"11
+[v i2uart_send_string@i i `i  1 a 2 8 ]
+"10
+[v i2uart_send_string@msg msg `*.32uc  1 p 2 4 ]
+"14
+} 0
+"5 D:\Programs\Microchip\xc8\v2.32\pic\sources\c99\common\strlen.c
+[v i2_strlen strlen `(ui  1 e 2 0 ]
+{
+"7
+[v i2strlen@a a `*.32Cuc  1 a 2 2 ]
+"5
+[v i2strlen@s s `*.32Cuc  1 p 2 0 ]
+"12
+} 0
+"170 D:\Coding\Senior Design\Senior_Design.X\mcc_generated_files/uart1.c
+[v i2_UART1_Write UART1_Write `(v  1 e 1 0 ]
+{
+[v i2UART1_Write@txData txData `uc  1 a 1 wreg ]
+[v i2UART1_Write@txData txData `uc  1 a 1 wreg ]
+[v i2UART1_Write@txData txData `uc  1 a 1 0 ]
+"177
 } 0
