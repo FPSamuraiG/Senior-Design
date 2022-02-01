@@ -53,7 +53,7 @@ void main(void)
     SYSTEM_Initialize();
     sleep_setup();
     IOCCF7_SetInterruptHandler(uart_btn_msg);
-    //INTERRUPT_GlobalInterruptEnable();
+    INTERRUPT_GlobalInterruptEnable();
     
     uart_send_string("Test");
     printf("Test2\n\r");
@@ -78,13 +78,14 @@ void main(void)
         if (sleep_btn_GetValue() == LOW && sleep_btn_pressed == false){
             sleep_en = !sleep_en;
             sleep_btn_pressed = true;
+            while(sleep_btn_GetValue() == LOW);
         }
         else if (sleep_btn_GetValue() == HIGH && sleep_btn_pressed == true) {
             sleep_btn_pressed = false;
         }
         
         if (sleep_en) {
-            for (int i = 0; i < 10; i++){
+            for (int i = 0; i < 5; i++){
                 led_SetLow();
                 __delay_ms(500);
                 led_SetHigh();
