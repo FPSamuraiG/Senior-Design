@@ -22945,13 +22945,13 @@ void PIN_MANAGER_Initialize (void);
 # 198 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 211 "./mcc_generated_files/pin_manager.h"
-void IOCCF7_ISR(void);
+void IOCCF0_ISR(void);
 # 234 "./mcc_generated_files/pin_manager.h"
-void IOCCF7_SetInterruptHandler(void (* InterruptHandler)(void));
+void IOCCF0_SetInterruptHandler(void (* InterruptHandler)(void));
 # 258 "./mcc_generated_files/pin_manager.h"
-extern void (*IOCCF7_InterruptHandler)(void);
+extern void (*IOCCF0_InterruptHandler)(void);
 # 282 "./mcc_generated_files/pin_manager.h"
-void IOCCF7_DefaultInterruptHandler(void);
+void IOCCF0_DefaultInterruptHandler(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
 
@@ -23302,50 +23302,47 @@ void main(void)
 
     SYSTEM_Initialize();
     sleep_setup();
-    IOCCF7_SetInterruptHandler(uart_btn_msg);
+    IOCCF0_SetInterruptHandler(uart_btn_msg);
     (INTCON0bits.GIE = 1);
 
-    uart_send_string("Test");
-    printf("Test2\n\r");
+
     do { LATCbits.LATC1 = 0; } while(0);
     _delay((unsigned long)((1500)*(1000000/4000.0)));
-# 72 "main.c"
-    _Bool pressed = 0;
-    _Bool sleep_btn_pressed = 0;
-    _Bool sleep_en = 0;
+    uart_send_string("Device powered on");
+
+
+    _Bool btn_pressed = 0;
     while (1)
     {
 
-        if (PORTCbits.RC7 == 0 && sleep_btn_pressed == 0){
-            sleep_en = !sleep_en;
-            sleep_btn_pressed = 1;
-            while(PORTCbits.RC7 == 0);
-        }
-        else if (PORTCbits.RC7 == 1 && sleep_btn_pressed == 1) {
-            sleep_btn_pressed = 0;
-        }
+        if (PORTCbits.RC7 == 0) {
 
-        if (sleep_en) {
             for (int i = 0; i < 5; i++){
                 do { LATCbits.LATC1 = 0; } while(0);
-                _delay((unsigned long)((500)*(1000000/4000.0)));
+                _delay((unsigned long)((250)*(1000000/4000.0)));
                 do { LATCbits.LATC1 = 1; } while(0);
-                _delay((unsigned long)((500)*(1000000/4000.0)));
+                _delay((unsigned long)((250)*(1000000/4000.0)));
             }
+
+
+            uart_send_string("BAT??");
+
             sleep_enter();
         }
         else {
-            if (PORTCbits.RC0 == 0 && pressed == 0){
-                pressed = 1;
+
+
+            if (PORTCbits.RC0 == 0 && btn_pressed == 0){
+
+                btn_pressed = 1;
                 uart_send_string("PSH");
-                printf("PSH2\n");
                 do { LATCbits.LATC1 = 0; } while(0);
             }
-            else if (PORTCbits.RC0 == 1 && pressed == 1){
-                pressed = 0;
+            else if (PORTCbits.RC0 == 1 && btn_pressed == 1){
+                btn_pressed = 0;
             }
 
-            if (pressed == 0) do { LATCbits.LATC1 = 1; } while(0);
+            if (btn_pressed == 0) do { LATCbits.LATC1 = 1; } while(0);
         }
     }
 }

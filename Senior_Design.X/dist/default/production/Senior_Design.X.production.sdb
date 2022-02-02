@@ -61,10 +61,6 @@ I2C1_DATA_NACK 3
 I2C1_TIMEOUT 4
 I2C1_NULL 5
 ]
-"692 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\doprnt.c
-[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
-"1390
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\float.c
@@ -77,12 +73,6 @@ I2C1_NULL 5
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
 "19 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
-"8 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-"8 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\nf_fputs.c
-[v _fputs fputs `(i  1 e 2 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\printf.c
-[v _printf printf `(i  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
@@ -250,11 +240,11 @@ I2C1_NULL 5
 "136
 [v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
 "148
-[v _IOCCF7_ISR IOCCF7_ISR `(v  1 e 1 0 ]
+[v _IOCCF0_ISR IOCCF0_ISR `(v  1 e 1 0 ]
 "163
-[v _IOCCF7_SetInterruptHandler IOCCF7_SetInterruptHandler `(v  1 e 1 0 ]
+[v _IOCCF0_SetInterruptHandler IOCCF0_SetInterruptHandler `(v  1 e 1 0 ]
 "170
-[v _IOCCF7_DefaultInterruptHandler IOCCF7_DefaultInterruptHandler `(v  1 e 1 0 ]
+[v _IOCCF0_DefaultInterruptHandler IOCCF0_DefaultInterruptHandler `(v  1 e 1 0 ]
 "66 C:\Users\chris\OneDrive\Documents\Senior Design Code\Senior-Design\Senior_Design.X\mcc_generated_files/uart1.c
 [v _UART1_Initialize UART1_Initialize `(v  1 e 1 0 ]
 "145
@@ -262,8 +252,6 @@ I2C1_NULL 5
 "170
 [v _UART1_Write UART1_Write `(v  1 e 1 0 ]
 [v i2_UART1_Write UART1_Write `(v  1 e 1 0 ]
-"184
-[v _putch putch `(v  1 e 1 0 ]
 "193
 [v _UART1_DefaultFramingErrorHandler UART1_DefaultFramingErrorHandler `(v  1 e 1 0 ]
 "195
@@ -665,7 +653,7 @@ I2C1_NULL 5
 [v _LATB LATB `VEuc  1 e 1 @1215 ]
 "36908
 [v _LATC LATC `VEuc  1 e 1 @1216 ]
-[s S1509 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S1499 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -675,17 +663,17 @@ I2C1_NULL 5
 `uc 1 LATC7 1 0 :1:7 
 ]
 "36925
-[u S1518 . 1 `S1509 1 . 1 0 ]
+[u S1508 . 1 `S1499 1 . 1 0 ]
 "36925
 "36925
-[v _LATCbits LATCbits `VES1518  1 e 1 @1216 ]
+[v _LATCbits LATCbits `VES1508  1 e 1 @1216 ]
 "36970
 [v _TRISA TRISA `VEuc  1 e 1 @1222 ]
 "37020
 [v _TRISB TRISB `VEuc  1 e 1 @1223 ]
 "37059
 [v _TRISC TRISC `VEuc  1 e 1 @1224 ]
-[s S1536 . 1 `uc 1 RC0 1 0 :1:0 
+[s S1531 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -695,10 +683,10 @@ I2C1_NULL 5
 `uc 1 RC7 1 0 :1:7 
 ]
 "37227
-[u S1545 . 1 `S1536 1 . 1 0 ]
+[u S1540 . 1 `S1531 1 . 1 0 ]
 "37227
 "37227
-[v _PORTCbits PORTCbits `VES1545  1 e 1 @1232 ]
+[v _PORTCbits PORTCbits `VES1540  1 e 1 @1232 ]
 [s S1391 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
@@ -720,12 +708,6 @@ I2C1_NULL 5
 [v _DOZEN DOZEN `VEb  1 e 0 @10134 ]
 "42212
 [v _IDLEN IDLEN `VEb  1 e 0 @10135 ]
-"55 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\doprnt.c
-[v _flags flags `i  1 s 2 flags ]
-[v _prec prec `i  1 s 2 prec ]
-[v _width width `i  1 s 2 width ]
-"69
-[v _nout nout `i  1 s 2 nout ]
 "159 C:\Users\chris\OneDrive\Documents\Senior Design Code\Senior-Design\Senior_Design.X\mcc_generated_files/i2c1_master.c
 [v _i2c1_fsmStateTable i2c1_fsmStateTable `C[19]*.37(E13624  1 e 38 0 ]
 [s S302 . 36 `[6]*.37(E360 1 callbackTable 12 0 `[6]*.39v 1 callbackPayload 12 12 `us 1 time_out 2 24 `us 1 time_out_value 2 26 `uc 1 address 1 28 `*.39uc 1 data_ptr 2 29 `ui 1 data_length 2 31 `E13624 1 state 1 33 `E355 1 error 1 34 `uc 1 addressNackCheck 1 35 :2:0 
@@ -736,7 +718,7 @@ I2C1_NULL 5
 "181
 [v _I2C1_Status I2C1_Status `S302  1 e 36 0 ]
 "54 C:\Users\chris\OneDrive\Documents\Senior Design Code\Senior-Design\Senior_Design.X\mcc_generated_files/pin_manager.c
-[v _IOCCF7_InterruptHandler IOCCF7_InterruptHandler `*.37(v  1 e 2 0 ]
+[v _IOCCF0_InterruptHandler IOCCF0_InterruptHandler `*.37(v  1 e 2 0 ]
 [s S986 . 1 `uc 1 perr 1 0 :1:0 
 `uc 1 ferr 1 0 :1:1 
 `uc 1 oerr 1 0 :1:2 
@@ -754,15 +736,11 @@ I2C1_NULL 5
 "50 C:\Users\chris\OneDrive\Documents\Senior Design Code\Senior-Design\Senior_Design.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"88
-[v main@i i `i  1 a 2 47 ]
-"72
-[v main@pressed pressed `a  1 a 1 51 ]
-"73
-[v main@sleep_btn_pressed sleep_btn_pressed `a  1 a 1 50 ]
-"74
-[v main@sleep_en sleep_en `a  1 a 1 49 ]
-"110
+"70
+[v main@i i `i  1 a 2 28 ]
+"64
+[v main@btn_pressed btn_pressed `a  1 a 1 30 ]
+"98
 } 0
 "10 C:\Users\chris\OneDrive\Documents\Senior Design Code\Senior-Design\Senior_Design.X\comm_uart.c
 [v _uart_send_string uart_send_string `(v  1 e 1 0 ]
@@ -782,6 +760,14 @@ I2C1_NULL 5
 [v strlen@s s `*.32Cuc  1 p 2 16 ]
 "12
 } 0
+"170 C:\Users\chris\OneDrive\Documents\Senior Design Code\Senior-Design\Senior_Design.X\mcc_generated_files/uart1.c
+[v _UART1_Write UART1_Write `(v  1 e 1 0 ]
+{
+[v UART1_Write@txData txData `uc  1 a 1 wreg ]
+[v UART1_Write@txData txData `uc  1 a 1 wreg ]
+[v UART1_Write@txData txData `uc  1 a 1 16 ]
+"177
+} 0
 "4 C:\Users\chris\OneDrive\Documents\Senior Design Code\Senior-Design\Senior_Design.X\sleep.c
 [v _sleep_setup sleep_setup `(v  1 e 1 0 ]
 {
@@ -791,62 +777,6 @@ I2C1_NULL 5
 [v _sleep_enter sleep_enter `(v  1 e 1 0 ]
 {
 "12
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\printf.c
-[v _printf printf `(i  1 e 2 0 ]
-{
-"8
-[v printf@ap ap `[1]*.39v  1 a 2 43 ]
-"5
-[v printf@fmt fmt `*.32Cuc  1 p 2 41 ]
-"13
-} 0
-"1390 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\doprnt.c
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
-{
-"1393
-[v vfprintf@cfmt cfmt `*.32uc  1 a 2 39 ]
-[s S2072 _IO_FILE 0 ]
-"1390
-[v vfprintf@fp fp `*.2S2072  1 p 2 33 ]
-[v vfprintf@fmt fmt `*.32Cuc  1 p 2 35 ]
-[v vfprintf@ap ap `*.39*.39v  1 p 2 37 ]
-"1404
-} 0
-"692
-[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
-{
-[s S2072 _IO_FILE 0 ]
-[v vfpfcnvrt@fp fp `*.2S2072  1 p 2 27 ]
-[v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 29 ]
-[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 31 ]
-"1387
-} 0
-"8 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-{
-[v fputc@c c `i  1 p 2 18 ]
-[u S2051 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2054 _IO_FILE 11 `S2051 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.2S2054  1 p 2 20 ]
-"24
-} 0
-"184 C:\Users\chris\OneDrive\Documents\Senior Design Code\Senior-Design\Senior_Design.X\mcc_generated_files/uart1.c
-[v _putch putch `(v  1 e 1 0 ]
-{
-[v putch@txData txData `uc  1 a 1 wreg ]
-[v putch@txData txData `uc  1 a 1 wreg ]
-"186
-[v putch@txData txData `uc  1 a 1 17 ]
-"187
-} 0
-"170
-[v _UART1_Write UART1_Write `(v  1 e 1 0 ]
-{
-[v UART1_Write@txData txData `uc  1 a 1 wreg ]
-[v UART1_Write@txData txData `uc  1 a 1 wreg ]
-[v UART1_Write@txData txData `uc  1 a 1 16 ]
-"177
 } 0
 "50 C:\Users\chris\OneDrive\Documents\Senior Design Code\Senior-Design\Senior_Design.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -887,9 +817,9 @@ I2C1_NULL 5
 "134
 } 0
 "163
-[v _IOCCF7_SetInterruptHandler IOCCF7_SetInterruptHandler `(v  1 e 1 0 ]
+[v _IOCCF0_SetInterruptHandler IOCCF0_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v IOCCF7_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 16 ]
+[v IOCCF0_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 16 ]
 "165
 } 0
 "60 C:\Users\chris\OneDrive\Documents\Senior Design Code\Senior-Design\Senior_Design.X\mcc_generated_files/mcc.c
@@ -918,12 +848,12 @@ I2C1_NULL 5
 "143
 } 0
 "148
-[v _IOCCF7_ISR IOCCF7_ISR `(v  1 e 1 0 ]
+[v _IOCCF0_ISR IOCCF0_ISR `(v  1 e 1 0 ]
 {
 "158
 } 0
 "170
-[v _IOCCF7_DefaultInterruptHandler IOCCF7_DefaultInterruptHandler `(v  1 e 1 0 ]
+[v _IOCCF0_DefaultInterruptHandler IOCCF0_DefaultInterruptHandler `(v  1 e 1 0 ]
 {
 "173
 } 0

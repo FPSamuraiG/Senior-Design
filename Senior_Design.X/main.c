@@ -52,59 +52,47 @@ void main(void)
     // Initialize the device
     SYSTEM_Initialize();
     sleep_setup();
-    IOCCF7_SetInterruptHandler(uart_btn_msg);
+    IOCCF0_SetInterruptHandler(uart_btn_msg);
     INTERRUPT_GlobalInterruptEnable();
     
-    uart_send_string("Test");
-    printf("Test2\n\r");
+    //Startup procedure
     led_SetLow();
     __delay_ms(1500);
-    // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts
-    // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global Interrupts
-    // Use the following macros to:
-
-    // Enable high priority global interrupts
-    //INTERRUPT_GlobalInterruptHighEnable();
-
-    // Enable low priority global interrupts.
-    //INTERRUPT_GlobalInterruptLowEnable();
+    uart_send_string("Device powered on");
     
-    bool pressed = false;
-    bool sleep_btn_pressed = false;
-    bool sleep_en = false;
+    
+    bool btn_pressed = false; //For button debounce
     while (1)
     {
         //Code for testing microcontroller
-        if (sleep_btn_GetValue() == LOW && sleep_btn_pressed == false){
-            sleep_en = !sleep_en;
-            sleep_btn_pressed = true;
-            while(sleep_btn_GetValue() == LOW);
-        }
-        else if (sleep_btn_GetValue() == HIGH && sleep_btn_pressed == true) {
-            sleep_btn_pressed = false;
-        }
-        
-        if (sleep_en) {
+        if (sleep_sw_GetValue() == LOW) {
+            //If sleep switch is on, flash led 5 times then enter sleep
             for (int i = 0; i < 5; i++){
                 led_SetLow();
-                __delay_ms(500);
+                __delay_ms(250);
                 led_SetHigh();
-                __delay_ms(500);
+                __delay_ms(250);
             }
+            
+            //Send dummy battery status
+            uart_send_string("BAT??");
+            
             sleep_enter();
         }
         else {
-            if (btn_GetValue() == LOW && pressed == false){
-                pressed = true;
+            //If sleep switch is off, turn on LED and send message when
+            //the push button is pressed.
+            if (btn_GetValue() == LOW && btn_pressed == false){
+                //Only execute following code once per button press
+                btn_pressed = true;
                 uart_send_string("PSH");
-                printf("PSH2\n");
                 led_SetLow();
             }
-            else if (btn_GetValue() == HIGH && pressed == true){
-                pressed = false;
+            else if (btn_GetValue() == HIGH && btn_pressed == true){
+                btn_pressed = false;
             }
 
-            if (pressed == false) led_SetHigh();
+            if (btn_pressed == false) led_SetHigh();
         }
     }
 }

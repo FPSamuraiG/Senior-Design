@@ -22947,13 +22947,13 @@ void PIN_MANAGER_Initialize (void);
 # 198 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 211 "./mcc_generated_files/pin_manager.h"
-void IOCCF7_ISR(void);
+void IOCCF0_ISR(void);
 # 234 "./mcc_generated_files/pin_manager.h"
-void IOCCF7_SetInterruptHandler(void (* InterruptHandler)(void));
+void IOCCF0_SetInterruptHandler(void (* InterruptHandler)(void));
 # 258 "./mcc_generated_files/pin_manager.h"
-extern void (*IOCCF7_InterruptHandler)(void);
+extern void (*IOCCF0_InterruptHandler)(void);
 # 282 "./mcc_generated_files/pin_manager.h"
-void IOCCF7_DefaultInterruptHandler(void);
+void IOCCF0_DefaultInterruptHandler(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
 

@@ -8,8 +8,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _sleep_setup `(v ~T0 @X0 0 ef ]
 [v F13238 `(v ~T0 @X0 0 tf ]
 "234 ./mcc_generated_files/pin_manager.h
-[; ;./mcc_generated_files/pin_manager.h: 234: void IOCCF7_SetInterruptHandler(void (* InterruptHandler)(void));
-[v _IOCCF7_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F13238 ]
+[; ;./mcc_generated_files/pin_manager.h: 234: void IOCCF0_SetInterruptHandler(void (* InterruptHandler)(void));
+[v _IOCCF0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F13238 ]
 "19 ./comm_uart.h
 [; ;./comm_uart.h: 19:     void uart_btn_msg(void);
 [v _uart_btn_msg `(v ~T0 @X0 0 ef ]
@@ -28,13 +28,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37292
 [; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic18f16q41.h: 37292: extern volatile INTCON0bits_t INTCON0bits __attribute__((address(0x4D6)));
 [v _INTCON0bits `VS1768 ~T0 @X0 0 e@1238 ]
-"18 ./comm_uart.h
-[; ;./comm_uart.h: 18:     void uart_send_string(char* msg);
-[v _uart_send_string `(v ~T0 @X0 0 ef1`*uc ]
-"105 C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\stdio.h
-[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"36914 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic18f16q41.h
+"36914
 [; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic18f16q41.h: 36914:     struct {
 [s S1755 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1755 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
@@ -49,6 +43,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12 C:\Program Files\Microchip\xc8\v2.35\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
 [p i __delay ]
+"18 ./comm_uart.h
+[; ;./comm_uart.h: 18:     void uart_send_string(char* msg);
+[v _uart_send_string `(v ~T0 @X0 0 ef1`*uc ]
 "37216 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic18f16q41.h
 [; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic18f16q41.h: 37216:     struct {
 [s S1767 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -2107,192 +2104,145 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 54:     sleep_setup();
 [e ( _sleep_setup ..  ]
 "55
-[; ;main.c: 55:     IOCCF7_SetInterruptHandler(uart_btn_msg);
-[e ( _IOCCF7_SetInterruptHandler (1 &U _uart_btn_msg ]
+[; ;main.c: 55:     IOCCF0_SetInterruptHandler(uart_btn_msg);
+[e ( _IOCCF0_SetInterruptHandler (1 &U _uart_btn_msg ]
 "56
 [; ;main.c: 56:     (INTCON0bits.GIE = 1);
 [e = . . _INTCON0bits 0 6 -> -> 1 `i `uc ]
-"58
-[; ;main.c: 58:     uart_send_string("Test");
-[e ( _uart_send_string (1 :s 1C ]
 "59
-[; ;main.c: 59:     printf("Test2\n\r");
-[e ( _printf :s 2C ]
-"60
-[; ;main.c: 60:     do { LATCbits.LATC1 = 0; } while(0);
+[; ;main.c: 59:     do { LATCbits.LATC1 = 0; } while(0);
 [e :U 1878 ]
 {
 [e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
 }
 [e :U 1877 ]
-"61
-[; ;main.c: 61:     _delay((unsigned long)((1500)*(1000000/4000.0)));
+"60
+[; ;main.c: 60:     _delay((unsigned long)((1500)*(1000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1500 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
-"72
-[; ;main.c: 72:     _Bool pressed = 0;
-[v _pressed `a ~T0 @X0 1 a ]
-[e = _pressed -> -> 0 `i `a ]
-"73
-[; ;main.c: 73:     _Bool sleep_btn_pressed = 0;
-[v _sleep_btn_pressed `a ~T0 @X0 1 a ]
-[e = _sleep_btn_pressed -> -> 0 `i `a ]
-"74
-[; ;main.c: 74:     _Bool sleep_en = 0;
-[v _sleep_en `a ~T0 @X0 1 a ]
-[e = _sleep_en -> -> 0 `i `a ]
-"75
-[; ;main.c: 75:     while (1)
+"61
+[; ;main.c: 61:     uart_send_string("Device powered on");
+[e ( _uart_send_string (1 :s 1C ]
+"64
+[; ;main.c: 64:     _Bool btn_pressed = 0;
+[v _btn_pressed `a ~T0 @X0 1 a ]
+[e = _btn_pressed -> -> 0 `i `a ]
+"65
+[; ;main.c: 65:     while (1)
 [e :U 1880 ]
-"76
-[; ;main.c: 76:     {
+"66
+[; ;main.c: 66:     {
 {
-"78
-[; ;main.c: 78:         if (PORTCbits.RC7 == 0 && sleep_btn_pressed == 0){
-[e $ ! && == -> . . _PORTCbits 0 7 `i -> 0 `i == -> _sleep_btn_pressed `i -> 0 `i 1882  ]
+"68
+[; ;main.c: 68:         if (PORTCbits.RC7 == 0) {
+[e $ ! == -> . . _PORTCbits 0 7 `i -> 0 `i 1882  ]
 {
-"79
-[; ;main.c: 79:             sleep_en = !sleep_en;
-[e = _sleep_en -> -> ! != -> _sleep_en `i -> 0 `i `i `a ]
-"80
-[; ;main.c: 80:             sleep_btn_pressed = 1;
-[e = _sleep_btn_pressed -> -> 1 `i `a ]
-"81
-[; ;main.c: 81:             while(PORTCbits.RC7 == 0);
-[e $U 1883  ]
-[e :U 1884 ]
-[e :U 1883 ]
-[e $ == -> . . _PORTCbits 0 7 `i -> 0 `i 1884  ]
-[e :U 1885 ]
-"82
-[; ;main.c: 82:         }
-}
-[e $U 1886  ]
-"83
-[; ;main.c: 83:         else if (PORTCbits.RC7 == 1 && sleep_btn_pressed == 1) {
-[e :U 1882 ]
-[e $ ! && == -> . . _PORTCbits 0 7 `i -> 1 `i == -> _sleep_btn_pressed `i -> 1 `i 1887  ]
-{
-"84
-[; ;main.c: 84:             sleep_btn_pressed = 0;
-[e = _sleep_btn_pressed -> -> 0 `i `a ]
-"85
-[; ;main.c: 85:         }
-}
-[e :U 1887 ]
-[e :U 1886 ]
-"87
-[; ;main.c: 87:         if (sleep_en) {
-[e $ ! != -> _sleep_en `i -> 0 `i 1888  ]
-{
-"88
-[; ;main.c: 88:             for (int i = 0; i < 5; i++){
+"70
+[; ;main.c: 70:             for (int i = 0; i < 5; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 5 `i 1889  ]
-[e $U 1890  ]
-[e :U 1889 ]
+[e $ < _i -> 5 `i 1883  ]
+[e $U 1884  ]
+[e :U 1883 ]
 {
-"89
-[; ;main.c: 89:                 do { LATCbits.LATC1 = 0; } while(0);
-[e :U 1894 ]
+"71
+[; ;main.c: 71:                 do { LATCbits.LATC1 = 0; } while(0);
+[e :U 1888 ]
 {
 [e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
 }
-[e :U 1893 ]
-"90
-[; ;main.c: 90:                 _delay((unsigned long)((500)*(1000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
-"91
-[; ;main.c: 91:                 do { LATCbits.LATC1 = 1; } while(0);
-[e :U 1897 ]
+[e :U 1887 ]
+"72
+[; ;main.c: 72:                 _delay((unsigned long)((250)*(1000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
+"73
+[; ;main.c: 73:                 do { LATCbits.LATC1 = 1; } while(0);
+[e :U 1891 ]
 {
 [e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
 }
+[e :U 1890 ]
+"74
+[; ;main.c: 74:                 _delay((unsigned long)((250)*(1000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
+"75
+[; ;main.c: 75:             }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 1883  ]
+[e :U 1884 ]
+}
+"78
+[; ;main.c: 78:             uart_send_string("BAT??");
+[e ( _uart_send_string (1 :s 2C ]
+"80
+[; ;main.c: 80:             sleep_enter();
+[e ( _sleep_enter ..  ]
+"81
+[; ;main.c: 81:         }
+}
+[e $U 1892  ]
+"82
+[; ;main.c: 82:         else {
+[e :U 1882 ]
+{
+"85
+[; ;main.c: 85:             if (PORTCbits.RC0 == 0 && btn_pressed == 0){
+[e $ ! && == -> . . _PORTCbits 0 0 `i -> 0 `i == -> _btn_pressed `i -> 0 `i 1893  ]
+{
+"87
+[; ;main.c: 87:                 btn_pressed = 1;
+[e = _btn_pressed -> -> 1 `i `a ]
+"88
+[; ;main.c: 88:                 uart_send_string("PSH");
+[e ( _uart_send_string (1 :s 3C ]
+"89
+[; ;main.c: 89:                 do { LATCbits.LATC1 = 0; } while(0);
 [e :U 1896 ]
+{
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+}
+[e :U 1895 ]
+"90
+[; ;main.c: 90:             }
+}
+[e $U 1897  ]
+"91
+[; ;main.c: 91:             else if (PORTCbits.RC0 == 1 && btn_pressed == 1){
+[e :U 1893 ]
+[e $ ! && == -> . . _PORTCbits 0 0 `i -> 1 `i == -> _btn_pressed `i -> 1 `i 1898  ]
+{
 "92
-[; ;main.c: 92:                 _delay((unsigned long)((500)*(1000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
+[; ;main.c: 92:                 btn_pressed = 0;
+[e = _btn_pressed -> -> 0 `i `a ]
 "93
 [; ;main.c: 93:             }
 }
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 5 `i 1889  ]
-[e :U 1890 ]
-}
-"94
-[; ;main.c: 94:             sleep_enter();
-[e ( _sleep_enter ..  ]
+[e :U 1898 ]
+[e :U 1897 ]
 "95
-[; ;main.c: 95:         }
-}
-[e $U 1898  ]
-"96
-[; ;main.c: 96:         else {
-[e :U 1888 ]
-{
-"97
-[; ;main.c: 97:             if (PORTCbits.RC0 == 0 && pressed == 0){
-[e $ ! && == -> . . _PORTCbits 0 0 `i -> 0 `i == -> _pressed `i -> 0 `i 1899  ]
-{
-"98
-[; ;main.c: 98:                 pressed = 1;
-[e = _pressed -> -> 1 `i `a ]
-"99
-[; ;main.c: 99:                 uart_send_string("PSH");
-[e ( _uart_send_string (1 :s 3C ]
-"100
-[; ;main.c: 100:                 printf("PSH2\n");
-[e ( _printf :s 4C ]
-"101
-[; ;main.c: 101:                 do { LATCbits.LATC1 = 0; } while(0);
+[; ;main.c: 95:             if (btn_pressed == 0) do { LATCbits.LATC1 = 1; } while(0);
+[e $ ! == -> _btn_pressed `i -> 0 `i 1899  ]
 [e :U 1902 ]
-{
-[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
-}
-[e :U 1901 ]
-"102
-[; ;main.c: 102:             }
-}
-[e $U 1903  ]
-"103
-[; ;main.c: 103:             else if (PORTCbits.RC0 == 1 && pressed == 1){
-[e :U 1899 ]
-[e $ ! && == -> . . _PORTCbits 0 0 `i -> 1 `i == -> _pressed `i -> 1 `i 1904  ]
-{
-"104
-[; ;main.c: 104:                 pressed = 0;
-[e = _pressed -> -> 0 `i `a ]
-"105
-[; ;main.c: 105:             }
-}
-[e :U 1904 ]
-[e :U 1903 ]
-"107
-[; ;main.c: 107:             if (pressed == 0) do { LATCbits.LATC1 = 1; } while(0);
-[e $ ! == -> _pressed `i -> 0 `i 1905  ]
-[e :U 1908 ]
 {
 [e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
 }
-[e :U 1907 ]
-[e :U 1905 ]
-"108
-[; ;main.c: 108:         }
+[e :U 1901 ]
+[e :U 1899 ]
+"96
+[; ;main.c: 96:         }
 }
-[e :U 1898 ]
-"109
-[; ;main.c: 109:     }
+[e :U 1892 ]
+"97
+[; ;main.c: 97:     }
 }
 [e :U 1879 ]
 [e $U 1880  ]
 [e :U 1881 ]
-"110
-[; ;main.c: 110: }
+"98
+[; ;main.c: 98: }
 [e :UE 1875 ]
 }
-[p f _printf 8388608 ]
-[a 1C 84 101 115 116 0 ]
+[a 1C 68 101 118 105 99 101 32 112 111 119 101 114 101 100 32 111 110 0 ]
 [a 3C 80 83 72 0 ]
-[a 2C 84 101 115 116 50 10 13 0 ]
-[a 4C 80 83 72 50 10 0 ]
+[a 2C 66 65 84 63 63 0 ]

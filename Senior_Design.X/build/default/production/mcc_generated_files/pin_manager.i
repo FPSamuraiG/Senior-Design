@@ -22940,20 +22940,20 @@ void PIN_MANAGER_Initialize (void);
 # 198 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 211 "mcc_generated_files/pin_manager.h"
-void IOCCF7_ISR(void);
+void IOCCF0_ISR(void);
 # 234 "mcc_generated_files/pin_manager.h"
-void IOCCF7_SetInterruptHandler(void (* InterruptHandler)(void));
+void IOCCF0_SetInterruptHandler(void (* InterruptHandler)(void));
 # 258 "mcc_generated_files/pin_manager.h"
-extern void (*IOCCF7_InterruptHandler)(void);
+extern void (*IOCCF0_InterruptHandler)(void);
 # 282 "mcc_generated_files/pin_manager.h"
-void IOCCF7_DefaultInterruptHandler(void);
+void IOCCF0_DefaultInterruptHandler(void);
 # 49 "mcc_generated_files/pin_manager.c" 2
 
 
 
 
 
-void (*IOCCF7_InterruptHandler)(void);
+void (*IOCCF0_InterruptHandler)(void);
 
 
 void PIN_MANAGER_Initialize(void)
@@ -22984,7 +22984,7 @@ void PIN_MANAGER_Initialize(void)
 
     WPUB = 0x00;
     WPUA = 0x00;
-    WPUC = 0x01;
+    WPUC = 0x00;
 
 
 
@@ -23012,16 +23012,16 @@ void PIN_MANAGER_Initialize(void)
 
 
 
-    IOCCFbits.IOCCF7 = 0;
+    IOCCFbits.IOCCF0 = 0;
 
-    IOCCNbits.IOCCN7 = 1;
+    IOCCNbits.IOCCN0 = 1;
 
-    IOCCPbits.IOCCP7 = 0;
-
-
+    IOCCPbits.IOCCP0 = 0;
 
 
-    IOCCF7_SetInterruptHandler(IOCCF7_DefaultInterruptHandler);
+
+
+    IOCCF0_SetInterruptHandler(IOCCF0_DefaultInterruptHandler);
 
 
     PIE0bits.IOCIE = 1;
@@ -23038,38 +23038,38 @@ void PIN_MANAGER_Initialize(void)
 void PIN_MANAGER_IOC(void)
 {
 
-    if(IOCCFbits.IOCCF7 == 1)
+    if(IOCCFbits.IOCCF0 == 1)
     {
-        IOCCF7_ISR();
+        IOCCF0_ISR();
     }
 }
 
 
 
 
-void IOCCF7_ISR(void) {
+void IOCCF0_ISR(void) {
 
 
 
 
-    if(IOCCF7_InterruptHandler)
+    if(IOCCF0_InterruptHandler)
     {
-        IOCCF7_InterruptHandler();
+        IOCCF0_InterruptHandler();
     }
-    IOCCFbits.IOCCF7 = 0;
+    IOCCFbits.IOCCF0 = 0;
 }
 
 
 
 
-void IOCCF7_SetInterruptHandler(void (* InterruptHandler)(void)){
-    IOCCF7_InterruptHandler = InterruptHandler;
+void IOCCF0_SetInterruptHandler(void (* InterruptHandler)(void)){
+    IOCCF0_InterruptHandler = InterruptHandler;
 }
 
 
 
 
-void IOCCF7_DefaultInterruptHandler(void){
+void IOCCF0_DefaultInterruptHandler(void){
 
 
 }
