@@ -1,8 +1,8 @@
 # Ignoring files according to http://microchip.wikidot.com/faq:72
-/Senior-Design.X/build/
-/Senior-Design.X/dist/
+build/
+dist/
 
 #Ignoring private Makefiles, to create them open the MPLAB IDE or use the C:\Program Files (x86)\Microchip\MPLABX\<VERSION>\mplab_ide\bin\prjMakefilesGenerator.bat script
-/Senior-Design.X/nbproject/Makefile-*
-/Senior-Design.X/nbproject/Package-*
-/Senior-Design.X/nbproject/private/
+/Senior_Design.X/nbproject/Makefile-*
+/Senior_Design.X/nbproject/Package-*
+/Senior_Design.X/nbproject/private/
