@@ -5,11 +5,11 @@ Faculty Advisor: 	Dr. Dieter Vanderelst
 External Advisor: 	Dr. Katie Kalafut
 
 Team Leader:
-Chris Dombrosky 	EE 		M12264716
+Chris Dombrosky 	EE 	M12264716
 
 Team Members:
 Brandon Carroll 	ELTN 	M12296291
-Nathaniel Collum 	EE 		M12302874
+Nathaniel Collum 	EE 	M12302874
 Hayden Lampert 		ELTN 	M12272409
 
 
