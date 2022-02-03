@@ -14,5 +14,6 @@ void uart_send_string(char* msg) {
 }
 
 void uart_btn_msg(void) {
-    uart_send_string("BTN1");
+    //__delay_ms(10);
+    uart_send_string("BTN1\r\n");
 }

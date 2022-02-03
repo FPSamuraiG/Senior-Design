@@ -57,8 +57,9 @@ void main(void)
     
     //Startup procedure
     led_SetLow();
-    __delay_ms(1500);
-    uart_send_string("Device powered on");
+    __delay_ms(1000);
+    uart_send_string("Underwater Input Platform\r\n");
+    uart_send_string("Version 0.10\t(2/3/2022)\r\n\n");
     
     
     bool btn_pressed = false; //For button debounce
@@ -75,7 +76,7 @@ void main(void)
             }
             
             //Send dummy battery status
-            uart_send_string("BAT??");
+            uart_send_string("BAT??\r\n");
             
             sleep_enter();
         }
@@ -85,7 +86,7 @@ void main(void)
             if (btn_GetValue() == LOW && btn_pressed == false){
                 //Only execute following code once per button press
                 btn_pressed = true;
-                uart_send_string("PSH");
+                uart_send_string("PSH\r\n");
                 led_SetLow();
             }
             else if (btn_GetValue() == HIGH && btn_pressed == true){
