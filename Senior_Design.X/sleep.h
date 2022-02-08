@@ -13,6 +13,7 @@ extern "C" {
 #endif
 
 #include "mcc_generated_files/mcc.h"
+#include "comm_uart.h"
 
     void sleep_setup(void);
     void sleep_enter(void);

@@ -66,35 +66,34 @@ void main(void)
     while (1)
     {
         //Code for testing microcontroller
-        if (sleep_sw_GetValue() == LOW) {
+        //if (sleep_sw_GetValue() == LOW) {
             //If sleep switch is on, flash led 5 times then enter sleep
-            for (int i = 0; i < 5; i++){
-                led_SetLow();
-                __delay_ms(250);
-                led_SetHigh();
-                __delay_ms(250);
-            }
-            
-            //Send dummy battery status
-            uart_send_string("BAT??\r\n");
-            
-            sleep_enter();
+        for (int i = 0; i < 5; i++){
+            led_SetLow();
+            __delay_ms(250);
+            led_SetHigh();
+            __delay_ms(250);
         }
-        else {
-            //If sleep switch is off, turn on LED and send message when
-            //the push button is pressed.
-            if (btn_GetValue() == LOW && btn_pressed == false){
-                //Only execute following code once per button press
-                btn_pressed = true;
-                uart_send_string("PSH\r\n");
-                led_SetLow();
-            }
-            else if (btn_GetValue() == HIGH && btn_pressed == true){
-                btn_pressed = false;
-            }
 
-            if (btn_pressed == false) led_SetHigh();
-        }
+        //Send dummy battery status
+        uart_send_string("BAT??\r\n");
+        sleep_enter();
+//        }
+//        else {
+//            //If sleep switch is off, turn on LED and send message when
+//            //the push button is pressed.
+//            if (btn_GetValue() == LOW && btn_pressed == false){
+//                //Only execute following code once per button press
+//                btn_pressed = true;
+//                uart_send_string("PSH\r\n");
+//                led_SetLow();
+//            }
+//            else if (btn_GetValue() == HIGH && btn_pressed == true){
+//                btn_pressed = false;
+//            }
+//
+//            if (btn_pressed == false) led_SetHigh();
+//        }
     }
 }
 /**
