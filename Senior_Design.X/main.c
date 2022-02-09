@@ -41,9 +41,12 @@
     SOFTWARE.
 */
 
+#include <stdio.h>
 #include "mcc_generated_files/mcc.h"
 #include "comm_uart.h"
 #include "sleep.h"
+#include "battery.h"
+
 /*
                          Main application
  */
@@ -62,22 +65,32 @@ void main(void)
     uart_send_string("Version 0.10\t(2/3/2022)\r\n\n");
     
     
-    bool btn_pressed = false; //For button debounce
+    //bool btn_pressed = false; //For button debounce
+    int SOC; //Battery charge level
+    char batt_msg[7]; //Battery message
     while (1)
     {
+        SOC = get_SOC();
+        
+        //Construct battery status message
+        if (SOC >= 0 && SOC < 10) snprintf(batt_msg, sizeof(batt_msg), "BAT0%i\r\n", SOC);
+        else if (SOC >= 10 && SOC < 100) snprintf(batt_msg, sizeof(batt_msg), "BAT%i\r\n", SOC);
+        else if (SOC == 100) snprintf(batt_msg, sizeof(batt_msg), "BAT00\r\n");
+        else snprintf(batt_msg, sizeof(batt_msg), "BATER\r\n"); //Battery error
+        
+        uart_send_string(batt_msg);
+        
+        sleep_enter();
+        
         //Code for testing microcontroller
         //if (sleep_sw_GetValue() == LOW) {
             //If sleep switch is on, flash led 5 times then enter sleep
-        for (int i = 0; i < 5; i++){
-            led_SetLow();
-            __delay_ms(250);
-            led_SetHigh();
-            __delay_ms(250);
-        }
-
-        //Send dummy battery status
-        uart_send_string("BAT??\r\n");
-        sleep_enter();
+//            for (int i = 0; i < 5; i++){
+//                led_SetLow();
+//                __delay_ms(250);
+//                led_SetHigh();
+//                __delay_ms(250);
+//            }
 //        }
 //        else {
 //            //If sleep switch is off, turn on LED and send message when
