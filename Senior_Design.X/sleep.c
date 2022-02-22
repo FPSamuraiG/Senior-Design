@@ -7,7 +7,6 @@ void sleep_setup(void) {
 }
 
 void sleep_enter(void) {
-    //uart_send_string("SLP");
     SLEEP();
     NOP();
 }

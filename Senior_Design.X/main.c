@@ -59,7 +59,7 @@ void main(void)
     INTERRUPT_GlobalInterruptEnable();
     
     //Startup procedure
-    led_SetLow();
+//    led_SetLow();
     __delay_ms(1000);
     uart_send_string("Underwater Input Platform\r\n");
     uart_send_string("Version 0.10\t(2/3/2022)\r\n\n");

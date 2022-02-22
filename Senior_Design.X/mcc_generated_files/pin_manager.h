@@ -133,46 +133,6 @@
 #define btn_SetAnalogMode()      do { ANSELCbits.ANSELC0 = 1; } while(0)
 #define btn_SetDigitalMode()     do { ANSELCbits.ANSELC0 = 0; } while(0)
 
-// get/set led aliases
-#define led_TRIS                 TRISCbits.TRISC1
-#define led_LAT                  LATCbits.LATC1
-#define led_PORT                 PORTCbits.RC1
-#define led_WPU                  WPUCbits.WPUC1
-#define led_OD                   ODCONCbits.ODCC1
-#define led_ANS                  ANSELCbits.ANSELC1
-#define led_SetHigh()            do { LATCbits.LATC1 = 1; } while(0)
-#define led_SetLow()             do { LATCbits.LATC1 = 0; } while(0)
-#define led_Toggle()             do { LATCbits.LATC1 = ~LATCbits.LATC1; } while(0)
-#define led_GetValue()           PORTCbits.RC1
-#define led_SetDigitalInput()    do { TRISCbits.TRISC1 = 1; } while(0)
-#define led_SetDigitalOutput()   do { TRISCbits.TRISC1 = 0; } while(0)
-#define led_SetPullup()          do { WPUCbits.WPUC1 = 1; } while(0)
-#define led_ResetPullup()        do { WPUCbits.WPUC1 = 0; } while(0)
-#define led_SetPushPull()        do { ODCONCbits.ODCC1 = 0; } while(0)
-#define led_SetOpenDrain()       do { ODCONCbits.ODCC1 = 1; } while(0)
-#define led_SetAnalogMode()      do { ANSELCbits.ANSELC1 = 1; } while(0)
-#define led_SetDigitalMode()     do { ANSELCbits.ANSELC1 = 0; } while(0)
-
-// get/set sleep_sw aliases
-#define sleep_sw_TRIS                 TRISCbits.TRISC7
-#define sleep_sw_LAT                  LATCbits.LATC7
-#define sleep_sw_PORT                 PORTCbits.RC7
-#define sleep_sw_WPU                  WPUCbits.WPUC7
-#define sleep_sw_OD                   ODCONCbits.ODCC7
-#define sleep_sw_ANS                  ANSELCbits.ANSELC7
-#define sleep_sw_SetHigh()            do { LATCbits.LATC7 = 1; } while(0)
-#define sleep_sw_SetLow()             do { LATCbits.LATC7 = 0; } while(0)
-#define sleep_sw_Toggle()             do { LATCbits.LATC7 = ~LATCbits.LATC7; } while(0)
-#define sleep_sw_GetValue()           PORTCbits.RC7
-#define sleep_sw_SetDigitalInput()    do { TRISCbits.TRISC7 = 1; } while(0)
-#define sleep_sw_SetDigitalOutput()   do { TRISCbits.TRISC7 = 0; } while(0)
-#define sleep_sw_SetPullup()          do { WPUCbits.WPUC7 = 1; } while(0)
-#define sleep_sw_ResetPullup()        do { WPUCbits.WPUC7 = 0; } while(0)
-#define sleep_sw_SetPushPull()        do { ODCONCbits.ODCC7 = 0; } while(0)
-#define sleep_sw_SetOpenDrain()       do { ODCONCbits.ODCC7 = 1; } while(0)
-#define sleep_sw_SetAnalogMode()      do { ANSELCbits.ANSELC7 = 1; } while(0)
-#define sleep_sw_SetDigitalMode()     do { ANSELCbits.ANSELC7 = 0; } while(0)
-
 /**
    @Param
     none
