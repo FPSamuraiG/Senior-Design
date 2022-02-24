@@ -59,13 +59,10 @@ void main(void)
     INTERRUPT_GlobalInterruptEnable();
     
     //Startup procedure
-//    led_SetLow();
-    __delay_ms(1000);
-    uart_send_string("Underwater Input Platform\r\n");
+    __delay_ms(100);
+    uart_send_string("\nUnderwater Input Platform\r\n");
     uart_send_string("Version 0.10\t(2/3/2022)\r\n\n");
     
-    
-    //bool btn_pressed = false; //For button debounce
     int SOC; //Battery charge level
     char batt_msg[7]; //Battery message
     while (1)
