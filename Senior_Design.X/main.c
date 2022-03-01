@@ -70,40 +70,14 @@ void main(void)
         SOC = get_SOC();
         
         //Construct battery status message
-        if (SOC >= 0 && SOC < 10) snprintf(batt_msg, sizeof(batt_msg), "BAT0%i\r\n", SOC);
-        else if (SOC >= 10 && SOC < 100) snprintf(batt_msg, sizeof(batt_msg), "BAT%i\r\n", SOC);
-        else if (SOC == 100) snprintf(batt_msg, sizeof(batt_msg), "BAT00\r\n");
-        else snprintf(batt_msg, sizeof(batt_msg), "BATER\r\n"); //Battery error
+        if (SOC >= 0 && SOC < 10) snprintf(batt_msg, sizeof(batt_msg), "BAT0%i\r", SOC);
+        else if (SOC >= 10 && SOC < 100) snprintf(batt_msg, sizeof(batt_msg), "BAT%i\r", SOC);
+        else if (SOC == 100) snprintf(batt_msg, sizeof(batt_msg), "BAT00\r");
+        else snprintf(batt_msg, sizeof(batt_msg), "BATER\r"); //Battery error
         
         uart_send_string(batt_msg);
         
         sleep_enter();
-        
-        //Code for testing microcontroller
-        //if (sleep_sw_GetValue() == LOW) {
-            //If sleep switch is on, flash led 5 times then enter sleep
-//            for (int i = 0; i < 5; i++){
-//                led_SetLow();
-//                __delay_ms(250);
-//                led_SetHigh();
-//                __delay_ms(250);
-//            }
-//        }
-//        else {
-//            //If sleep switch is off, turn on LED and send message when
-//            //the push button is pressed.
-//            if (btn_GetValue() == LOW && btn_pressed == false){
-//                //Only execute following code once per button press
-//                btn_pressed = true;
-//                uart_send_string("PSH\r\n");
-//                led_SetLow();
-//            }
-//            else if (btn_GetValue() == HIGH && btn_pressed == true){
-//                btn_pressed = false;
-//            }
-//
-//            if (btn_pressed == false) led_SetHigh();
-//        }
     }
 }
 /**

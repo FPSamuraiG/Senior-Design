@@ -21,6 +21,6 @@ void uart_btn_msg(void) {
     if (btn_GetValue() == LOW) //Check if the button is still pressed after a
                                //brief delay to debounce.
     {
-        uart_send_string("BTN1\r\n");
+        uart_send_string("BTN1\r");
     }
 }
