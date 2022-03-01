@@ -55,7 +55,7 @@ void main(void)
     // Initialize the device
     SYSTEM_Initialize();
     sleep_setup();
-    IOCCF0_SetInterruptHandler(uart_btn_msg);
+    IOCAF2_SetInterruptHandler(uart_btn_msg);
     INTERRUPT_GlobalInterruptEnable();
     
     //Startup procedure

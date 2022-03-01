@@ -65,6 +65,26 @@
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
+// get/set btn aliases
+#define btn_TRIS                 TRISAbits.TRISA2
+#define btn_LAT                  LATAbits.LATA2
+#define btn_PORT                 PORTAbits.RA2
+#define btn_WPU                  WPUAbits.WPUA2
+#define btn_OD                   ODCONAbits.ODCA2
+#define btn_ANS                  ANSELAbits.ANSELA2
+#define btn_SetHigh()            do { LATAbits.LATA2 = 1; } while(0)
+#define btn_SetLow()             do { LATAbits.LATA2 = 0; } while(0)
+#define btn_Toggle()             do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0)
+#define btn_GetValue()           PORTAbits.RA2
+#define btn_SetDigitalInput()    do { TRISAbits.TRISA2 = 1; } while(0)
+#define btn_SetDigitalOutput()   do { TRISAbits.TRISA2 = 0; } while(0)
+#define btn_SetPullup()          do { WPUAbits.WPUA2 = 1; } while(0)
+#define btn_ResetPullup()        do { WPUAbits.WPUA2 = 0; } while(0)
+#define btn_SetPushPull()        do { ODCONAbits.ODCA2 = 0; } while(0)
+#define btn_SetOpenDrain()       do { ODCONAbits.ODCA2 = 1; } while(0)
+#define btn_SetAnalogMode()      do { ANSELAbits.ANSELA2 = 1; } while(0)
+#define btn_SetDigitalMode()     do { ANSELAbits.ANSELA2 = 0; } while(0)
+
 // get/set RB4 procedures
 #define RB4_SetHigh()            do { LATBbits.LATB4 = 1; } while(0)
 #define RB4_SetLow()             do { LATBbits.LATB4 = 0; } while(0)
@@ -113,26 +133,6 @@
 #define RB7_SetAnalogMode()         do { ANSELBbits.ANSELB7 = 1; } while(0)
 #define RB7_SetDigitalMode()        do { ANSELBbits.ANSELB7 = 0; } while(0)
 
-// get/set btn aliases
-#define btn_TRIS                 TRISCbits.TRISC0
-#define btn_LAT                  LATCbits.LATC0
-#define btn_PORT                 PORTCbits.RC0
-#define btn_WPU                  WPUCbits.WPUC0
-#define btn_OD                   ODCONCbits.ODCC0
-#define btn_ANS                  ANSELCbits.ANSELC0
-#define btn_SetHigh()            do { LATCbits.LATC0 = 1; } while(0)
-#define btn_SetLow()             do { LATCbits.LATC0 = 0; } while(0)
-#define btn_Toggle()             do { LATCbits.LATC0 = ~LATCbits.LATC0; } while(0)
-#define btn_GetValue()           PORTCbits.RC0
-#define btn_SetDigitalInput()    do { TRISCbits.TRISC0 = 1; } while(0)
-#define btn_SetDigitalOutput()   do { TRISCbits.TRISC0 = 0; } while(0)
-#define btn_SetPullup()          do { WPUCbits.WPUC0 = 1; } while(0)
-#define btn_ResetPullup()        do { WPUCbits.WPUC0 = 0; } while(0)
-#define btn_SetPushPull()        do { ODCONCbits.ODCC0 = 0; } while(0)
-#define btn_SetOpenDrain()       do { ODCONCbits.ODCC0 = 1; } while(0)
-#define btn_SetAnalogMode()      do { ANSELCbits.ANSELC0 = 1; } while(0)
-#define btn_SetDigitalMode()     do { ANSELCbits.ANSELC0 = 0; } while(0)
-
 /**
    @Param
     none
@@ -164,18 +164,18 @@ void PIN_MANAGER_IOC(void);
  * @Returns
     none
  * @Description
-    Interrupt on Change Handler for the IOCCF0 pin functionality
+    Interrupt on Change Handler for the IOCAF2 pin functionality
  * @Example
-    IOCCF0_ISR();
+    IOCAF2_ISR();
  */
-void IOCCF0_ISR(void);
+void IOCAF2_ISR(void);
 
 /**
   @Summary
-    Interrupt Handler Setter for IOCCF0 pin interrupt-on-change functionality
+    Interrupt Handler Setter for IOCAF2 pin interrupt-on-change functionality
 
   @Description
-    Allows selecting an interrupt handler for IOCCF0 at application runtime
+    Allows selecting an interrupt handler for IOCAF2 at application runtime
     
   @Preconditions
     Pin Manager intializer called
@@ -188,18 +188,18 @@ void IOCCF0_ISR(void);
 
   @Example
     PIN_MANAGER_Initialize();
-    IOCCF0_SetInterruptHandler(MyInterruptHandler);
+    IOCAF2_SetInterruptHandler(MyInterruptHandler);
 
 */
-void IOCCF0_SetInterruptHandler(void (* InterruptHandler)(void));
+void IOCAF2_SetInterruptHandler(void (* InterruptHandler)(void));
 
 /**
   @Summary
-    Dynamic Interrupt Handler for IOCCF0 pin
+    Dynamic Interrupt Handler for IOCAF2 pin
 
   @Description
-    This is a dynamic interrupt handler to be used together with the IOCCF0_SetInterruptHandler() method.
-    This handler is called every time the IOCCF0 ISR is executed and allows any function to be registered at runtime.
+    This is a dynamic interrupt handler to be used together with the IOCAF2_SetInterruptHandler() method.
+    This handler is called every time the IOCAF2 ISR is executed and allows any function to be registered at runtime.
     
   @Preconditions
     Pin Manager intializer called
@@ -212,18 +212,18 @@ void IOCCF0_SetInterruptHandler(void (* InterruptHandler)(void));
 
   @Example
     PIN_MANAGER_Initialize();
-    IOCCF0_SetInterruptHandler(IOCCF0_InterruptHandler);
+    IOCAF2_SetInterruptHandler(IOCAF2_InterruptHandler);
 
 */
-extern void (*IOCCF0_InterruptHandler)(void);
+extern void (*IOCAF2_InterruptHandler)(void);
 
 /**
   @Summary
-    Default Interrupt Handler for IOCCF0 pin
+    Default Interrupt Handler for IOCAF2 pin
 
   @Description
-    This is a predefined interrupt handler to be used together with the IOCCF0_SetInterruptHandler() method.
-    This handler is called every time the IOCCF0 ISR is executed. 
+    This is a predefined interrupt handler to be used together with the IOCAF2_SetInterruptHandler() method.
+    This handler is called every time the IOCAF2 ISR is executed. 
     
   @Preconditions
     Pin Manager intializer called
@@ -236,10 +236,10 @@ extern void (*IOCCF0_InterruptHandler)(void);
 
   @Example
     PIN_MANAGER_Initialize();
-    IOCCF0_SetInterruptHandler(IOCCF0_DefaultInterruptHandler);
+    IOCAF2_SetInterruptHandler(IOCAF2_DefaultInterruptHandler);
 
 */
-void IOCCF0_DefaultInterruptHandler(void);
+void IOCAF2_DefaultInterruptHandler(void);
 
 
 
