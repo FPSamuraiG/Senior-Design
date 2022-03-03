@@ -7,6 +7,8 @@
 
 #include "comm_uart.h"
 
+int interrupt_processing = 0;
+
 void uart_send_string(char* msg) {
     while(UART1_is_tx_done() == 0); //Wait until any previous transmission is finished
     for (int i = 0; i < strlen(msg); i++){
@@ -17,10 +19,16 @@ void uart_send_string(char* msg) {
 }
 
 void uart_btn_msg(void) {
-    __delay_ms(10);
-    if (btn_GetValue() == LOW) //Check if the button is still pressed after a
-                               //brief delay to debounce.
+    interrupt_processing = 1;
+    __delay_ms(1);
+    int state = btn_GetValue();
+    __delay_ms(1);
+    if (btn_GetValue() == state) //Check if the button is still the same state
+                                 //after a brief delay to debounce.
     {
-        uart_send_string("BTN1\r");
+        while(UART1_is_tx_done() == 0);
+        if (state == LOW) uart_send_string("BTN01\r");
+        else uart_send_string("BTN00\r");
     }
+    interrupt_processing = 0;
 }

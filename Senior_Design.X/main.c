@@ -64,7 +64,7 @@ void main(void)
     uart_send_string("Version 0.10\t(2/3/2022)\r\n\n");
     
     int SOC; //Battery charge level
-    char batt_msg[7]; //Battery message
+    char batt_msg[6]; //Battery message
     while (1)
     {
         SOC = get_SOC();
@@ -75,6 +75,7 @@ void main(void)
         else if (SOC == 100) snprintf(batt_msg, sizeof(batt_msg), "BAT00\r");
         else snprintf(batt_msg, sizeof(batt_msg), "BATER\r"); //Battery error
         
+        while(interrupt_processing == 1);
         uart_send_string(batt_msg);
         
         sleep_enter();
