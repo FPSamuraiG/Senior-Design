@@ -14,11 +14,8 @@ extern "C" {
 
 #include <string.h>
 #include "mcc_generated_files/mcc.h"
-
-    extern int interrupt_processing;
     
     void uart_send_string(char* msg);
-    void uart_btn_msg(void);
     
 #ifdef	__cplusplus
 }

@@ -55,18 +55,30 @@ void main(void)
     // Initialize the device
     SYSTEM_Initialize();
     sleep_setup();
-    IOCAF2_SetInterruptHandler(uart_btn_msg);
+    IOCAF2_SetInterruptHandler(btn_interrupt);
     INTERRUPT_GlobalInterruptEnable();
     
     //Startup procedure
     __delay_ms(100);
     uart_send_string("\nUnderwater Input Platform\r\n");
-    uart_send_string("Version 0.10\t(2/3/2022)\r\n\n");
+    uart_send_string("Version 0.20\t(3/6/2022)\r\n\n");
     
-    int SOC; //Battery charge level
-    char batt_msg[6]; //Battery message
+    int SOC; //Battery charge level;
+    
+    int start_btn_state; //State of pushbutton at start of loop, used to see if
+                         //the button changed states during loop execution
+    int prev_btn_state = 0;  //State of button when a message was last sent, used to
+                             //avoid sending consecutive button states in situations
+                             //like button bouncing.
+    
+    char batt_msg[7]; //Battery message
+    char btn_msg[7];  //Button message
     while (1)
     {
+        //Save state of pushbutton at loop start
+        start_btn_state = btn_state;
+        
+        //Get battery charge level
         SOC = get_SOC();
         
         //Construct battery status message
@@ -75,10 +87,17 @@ void main(void)
         else if (SOC == 100) snprintf(batt_msg, sizeof(batt_msg), "BAT00\r");
         else snprintf(batt_msg, sizeof(batt_msg), "BATER\r"); //Battery error
         
-        while(interrupt_processing == 1);
-        uart_send_string(batt_msg);
+        if (start_btn_state != prev_btn_state){
+            snprintf(btn_msg, sizeof(btn_msg), "BTN0%i\r", start_btn_state);
+            uart_send_string(btn_msg);
+            prev_btn_state = start_btn_state;
+            
+            //Only send battery level when button is released
+            if(start_btn_state == 0) uart_send_string(batt_msg);
+        }
         
-        sleep_enter();
+        //Only go to sleep if button didn't change states during this loop
+        if(btn_state == start_btn_state) sleep_enter();
     }
 }
 /**

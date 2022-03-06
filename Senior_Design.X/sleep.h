@@ -15,8 +15,11 @@ extern "C" {
 #include "mcc_generated_files/mcc.h"
 #include "comm_uart.h"
 
+    extern int btn_state;
+    
     void sleep_setup(void);
     void sleep_enter(void);
+    void btn_interrupt(void);
 
 #ifdef	__cplusplus
 }
