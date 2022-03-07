@@ -98,6 +98,32 @@ void main(void)
         
         //Only go to sleep if button didn't change states during this loop
         if(btn_state == start_btn_state) sleep_enter();
+//        
+//        //Save state of pushbutton at loop start
+//        __delay_ms(1);
+//        start_btn_state = btn_state;
+//        
+//        __delay_ms(10);
+//        if(btn_state == start_btn_state && input_handled == 0) {
+//            input_handled = 1;
+//            snprintf(btn_msg, sizeof(btn_msg), "BTN0%i\r", start_btn_state);
+//            uart_send_string(btn_msg);
+//            
+//            //Get battery charge level
+//            SOC = get_SOC();
+//
+//            //Construct battery status message
+//            if (SOC >= 0 && SOC < 10) snprintf(batt_msg, sizeof(batt_msg), "BAT0%i\r", SOC);
+//            else if (SOC >= 10 && SOC < 100) snprintf(batt_msg, sizeof(batt_msg), "BAT%i\r", SOC);
+//            else if (SOC == 100) snprintf(batt_msg, sizeof(batt_msg), "BAT00\r");
+//            else snprintf(batt_msg, sizeof(batt_msg), "BATER\r"); //Battery error
+//            
+//            //Only send battery level when button is released
+//            if(start_btn_state == 0) uart_send_string(batt_msg);
+//        }
+//        
+//        //Only go to sleep if another interrupt didn't occur during the loop
+//        if(input_handled == 1) sleep_enter();
     }
 }
 /**

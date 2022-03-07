@@ -2,6 +2,7 @@
 #include "sleep.h"
 
 int btn_state = 0; 
+//int input_handled = 1;
 
 void sleep_setup(void) {
     IDLEN = 0;
@@ -23,4 +24,7 @@ void btn_interrupt(void) {
         if (state == LOW) btn_state = 1;
         else btn_state = 0;
     }
+    
+//    btn_state = btn_GetValue();
+//    input_handled = 0;
 }
