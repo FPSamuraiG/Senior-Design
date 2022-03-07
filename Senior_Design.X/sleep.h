@@ -16,7 +16,7 @@ extern "C" {
 #include "comm_uart.h"
 
     extern int btn_state;
-//    extern int input_handled;
+    extern int input_handled;
     
     void sleep_setup(void);
     void sleep_enter(void);
