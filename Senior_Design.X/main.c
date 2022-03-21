@@ -111,8 +111,9 @@ void main(void)
             input_handled = 1;
             
             //Don't send a new message if the button didn't change states from 
-            //the last message sent
-            if (start_btn_state != last_btn_state_sent) {
+            //the last message sent (allow this behavior if the button is 
+            //released to not miss a release message during erratic behavior)
+            if ((start_btn_state != last_btn_state_sent) || (start_btn_state == 1)) {
                 if (start_btn_state == 0) btn_position = 1;
                 else btn_position = 0;
 
@@ -130,7 +131,7 @@ void main(void)
                 else snprintf(batt_msg, sizeof(batt_msg), "BATER\r"); //Battery error
 
                 //Only send battery level when button is pressed
-                if(start_btn_state == 0) uart_send_string(batt_msg);
+                if(btn_position == 1) uart_send_string(batt_msg);
             }
         }
         
