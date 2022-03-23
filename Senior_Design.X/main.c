@@ -54,8 +54,10 @@ void main(void)
 {
     // Initialize the device
     SYSTEM_Initialize();
+    TMR0_StopTimer();
     sleep_setup();
     IOCAF2_SetInterruptHandler(btn_interrupt);
+    TMR0_SetInterruptHandler(tmr_interrupt);
     INTERRUPT_GlobalInterruptEnable();
     
     //Startup procedure
@@ -67,7 +69,7 @@ void main(void)
     
     int start_btn_state; //State of pushbutton at start of loop, used to see if
                          //the button changed states during loop execution
-    int last_btn_state_sent = 0;  //State of button when a message was last sent, used to
+    int last_btn_state_sent = 1;  //State of button when a message was last sent, used to
                              //avoid sending consecutive button states in situations
                              //like button bouncing.
     int btn_position = 0;
@@ -76,44 +78,19 @@ void main(void)
     char btn_msg[7];  //Button message
     while (1)
     {
-//        //Save state of pushbutton at loop start
-//        start_btn_state = btn_state;
-//        
-//        //Get battery charge level
-//        SOC = get_SOC();
-//        
-//        //Construct battery status message
-//        if (SOC >= 0 && SOC < 10) snprintf(batt_msg, sizeof(batt_msg), "BAT0%i\r", SOC);
-//        else if (SOC >= 10 && SOC < 100) snprintf(batt_msg, sizeof(batt_msg), "BAT%i\r", SOC);
-//        else if (SOC == 100) snprintf(batt_msg, sizeof(batt_msg), "BAT00\r");
-//        else snprintf(batt_msg, sizeof(batt_msg), "BATER\r"); //Battery error
-//        
-//        if (start_btn_state != prev_btn_state){
-//            snprintf(btn_msg, sizeof(btn_msg), "BTN0%i\r", start_btn_state);
-//            uart_send_string(btn_msg);
-//            prev_btn_state = start_btn_state;
-//            
-//            //Only send battery level when button is released
-//            if(start_btn_state == 0) uart_send_string(batt_msg);
-//        }
-//        
-//        //Only go to sleep if button didn't change states during this loop
-//        if(btn_state == start_btn_state) sleep_enter();
-        
-        
         //Save state of pushbutton at loop start
         __delay_ms(1);
         start_btn_state = btn_state;
         
         //Check if button is in same state after a delay to debounce
         __delay_ms(50);
-        if(btn_state == start_btn_state && input_handled == 0) {
+        if(btn_state == start_btn_state) {
             input_handled = 1;
             
             //Don't send a new message if the button didn't change states from 
             //the last message sent (allow this behavior if the button is 
             //released to not miss a release message during erratic behavior)
-            if ((start_btn_state != last_btn_state_sent) || (start_btn_state == 1)) {
+            if (start_btn_state != last_btn_state_sent) {
                 if (start_btn_state == 0) btn_position = 1;
                 else btn_position = 0;
 
@@ -136,7 +113,10 @@ void main(void)
         }
         
         //Only go to sleep if another interrupt didn't occur during the loop
-        if(input_handled == 1) sleep_enter();
+        if(input_handled == 1) {
+            if(last_btn_state_sent == 0) TMR0_StartTimer(); //start timer if button was pressed
+            sleep_enter();
+        }
     }
 }
 /**
