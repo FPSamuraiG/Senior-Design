@@ -21,6 +21,7 @@ extern "C" {
     void sleep_setup(void);
     void sleep_enter(void);
     void btn_interrupt(void);
+    void tmr_interrupt(void);
 
 #ifdef	__cplusplus
 }
