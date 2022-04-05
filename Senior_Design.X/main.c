@@ -66,7 +66,7 @@ void main(void)
     uart_send_string("Version 0.20\t(3/6/2022)\r\n\n");
     
     int SOC; //Battery charge level;
-    
+ 
     int start_btn_state; //State of pushbutton at start of loop, used to see if
                          //the button changed states during loop execution
     int last_btn_state_sent = 1;  //State of button when a message was last sent, used to
@@ -99,7 +99,7 @@ void main(void)
                 last_btn_state_sent = start_btn_state;
 
                 //Get battery charge level
-                SOC = get_SOC();
+                SOC = getsoc();
 
                 //Construct battery status message
                 if (SOC >= 0 && SOC < 10) snprintf(batt_msg, sizeof(batt_msg), "BAT0%i\r", SOC);
