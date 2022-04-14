@@ -1,0 +1,9 @@
+To Order Additional PCBs
+	1) Upload zip files from the "Zipped Gerber Files" folder to JLCPCB
+	2) Choose quantity and manufacturing options and order bare boards
+	3) Order the electronic components listed in the "PCB Component Lists" spreadsheet
+		3a) Order components from suppliers such as DigiKey or Mouser based on lowest price
+		3b) For passives (resistors, capacitors) make sure to order the correct value and package for each component
+		3c) For ICs and fiber optic components, order the same parts as in the spreadsheet if possible but choose an equivalent part based on data sheets if any component is unavailable
+		3d) For headers only gender, number of pins, and pitch matter
+	4) Receive components and solder
